@@ -4,10 +4,19 @@
 
 <struts>
     <!-- Configuration for the default package. -->
-    <package name="default" extends="struts-default">
+    <package name="default" extends="struts-default" namespace="/">
         <action name="registro" class="controlador.UsuarioAction" method="insertar">
-            <result name="success"> registro_ok.jsp</result>
-            <result name="error"> 404.jsp</result>            
+            <result name="success"> registro.jsp</result>
+            <result name="error"> error.jsp</result>            
         </action>
+        
+        
+        <action name="Inicio" class="controlador.UsuarioAction" method="login">
+            <result name="success">   
+                index.jsp   
+            </result>            
+            <result name="error">index.jsp</result>
+        </action>   
+        
     </package>
 </struts>

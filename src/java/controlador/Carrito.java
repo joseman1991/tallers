@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import modelo.DetalleCompra;
-import modelo.EnviarMensaje;
+import modelo.EnviarMensaje; 
 import modelo.Items;
 import modelo.ItemsDAO;
 import modelo.Reservas;
@@ -27,7 +27,7 @@ import modelo.UsuariosDAO;
 import net.sf.jasperreports.engine.JRException;
 import org.apache.struts2.ServletActionContext;
 
-/**
+/** 
  *
  * @author JOSE
  */

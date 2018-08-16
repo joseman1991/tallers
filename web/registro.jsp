@@ -1,4 +1,4 @@
-
+<%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -56,11 +56,20 @@
                     </div>
 
                     <div class="col-md-6 p-b-30">
-                        <form class="leave-comment" action="registro">
+                        <form class="leave-comment" action="registro" id="form-registro">
+
                             <h4 class="m-text26 p-b-36 p-t-15">
                                 Registrate
                             </h4>
-
+                            <s:set name="mensaje"><s:property value="mensaje"/></s:set>
+                            <s:if test="#mensaje!=''">
+                                <div class="alert alert-success "   role="alert" id="nus">
+                                    <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
+                                        &times;
+                                    </a>
+                                    <strong>¡Éxito!</strong> Usuario registrado .
+                                </div>
+                            </s:if>
                             <div class="bo4 of-hidden size15 m-b-20">
                                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="nombreusuario" placeholder="nombre de usuario" id="nu">
                             </div>
@@ -90,8 +99,8 @@
                                 <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
                             </div>
 
-                             <div class="bo4 of-hidden size15 m-b-20">
-                                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="nombre1" placeholder="Primer nombre" id="pn">
+                            <div class="bo4 of-hidden size15 m-b-20">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="nombre1" placeholder="Primer nombre" id="pn">
                             </div>
                             <div class="alert alert-danger collapse"  role="alert" id="pns">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -99,7 +108,7 @@
                                 </a>
                                 <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
                             </div>
-                            
+
                             <div class="bo4 of-hidden size15 m-b-20">
                                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="nombre2" placeholder="segundo nombre" id="sn">
                             </div>
@@ -109,9 +118,9 @@
                                 </a>
                                 <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
                             </div>
-                            
+
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="apellido1" placeholder="primer apellido" id="ap">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="apellidop" placeholder="primer apellido" id="ap">
                             </div>
                             <div class="alert alert-danger collapse"  role="alert" id="aps">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -119,9 +128,9 @@
                                 </a>
                                 <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
                             </div>
-                            
+
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="apellido2" placeholder="segundo apellido" id="am">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="apellidon" placeholder="segundo apellido" id="am">
                             </div>
                             <div class="alert alert-danger collapse"  role="alert" id="ams">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -129,8 +138,8 @@
                                 </a>
                                 <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
                             </div>
-                            
-                            
+
+
                             <div class="bo4 of-hidden size15 m-b-20">
                                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="correo" placeholder="correo" id="corre">
                             </div>
@@ -140,7 +149,7 @@
                                 </a>
                                 <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
                             </div>
-                            
+
                             <div class="bo4 of-hidden size15 m-b-20">
                                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="direccion" placeholder="direccin" id="dir">
                             </div>
@@ -150,7 +159,7 @@
                                 </a>
                                 <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
                             </div>
-                            
+
                             <div class="bo4 of-hidden size15 m-b-20">
                                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="dni" placeholder="cédula" id="ced">
                             </div>
@@ -382,6 +391,6 @@
         <script src="js/map-custom.js"></script>
         <!--===============================================================================================-->
         <script src="js/main.js"></script>
-        <script type="text/javascript" src="js/validar.js"> </script>
+        <script type="text/javascript" src="js/validar.js"></script>
     </body>
 </html>

@@ -36,9 +36,10 @@ public class UsuariosDAO extends ConexionPSQL {
 
     public Usuarios obtenerUsusario(Usuarios user) throws SQLException {
         abrirConexion();
-        sentencia = conexion.prepareStatement("select * from usuarios where nombreusuario=? and clave=?");
+        sentencia = conexion.prepareStatement("select * from usuarios where nombreusuario=? or correo=? and clave=?");
         sentencia.setString(1, user.getNombreusuario());
-        sentencia.setString(2, user.getClave());
+        sentencia.setString(2, user.getNombreusuario());
+        sentencia.setString(3, user.getClave());
         resultado = sentencia.executeQuery();
         if (resultado.next()) {
             int i = 1;

@@ -3,7 +3,7 @@
     Created on : 16-ago-2018, 8:38:31
     Author     : JOSE
 --%>
-<%@taglib prefix="s" uri="/struts-tags" %>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,8 +11,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+     <s:set name="user" value="#session['usuario']"/>
     <body>
-         <header class="header1">
+
+        <header class="header1">
             <!-- Header desktop -->
             <div class="container-menu-header">
                 <div class="topbar">
@@ -30,7 +32,7 @@
                         <span class="topbar-email">
                             fashe@example.com
                         </span>
-
+                        
                         <div class="topbar-language rs1-select2">
                             <select class="selection-1" name="time">
                                 <option>USD</option>							 
@@ -40,7 +42,17 @@
                 </div>
 
                 <div class="wrap_header">
+                    <s:set name="mensaje"><s:property value="mensaje"/></s:set>
+                            <s:if test="#mensaje!=''">
+                                <div class="alert alert-success "   role="alert" id="nus">
+                                    <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
+                                        &times;
+                                    </a>
+                                    <strong>¡Éxito!</strong> Usuario registrado .
+                                </div>
+                            </s:if>
                     <!-- Logo -->
+                    <s:property value="#user.nombre1"/>
                     <a href="index.jsp" class="logo">
                         <img src="images/icons/logo.png" alt="IMG-LOGO">
                     </a>
@@ -79,20 +91,20 @@
 
                     <!-- Header Icon -->
                     <div class="header-icons">
-                      
+
 
                         <div class="header-wrapicon2">
                             <img src="images/icons/icon-header-01.png" class="header-icon1 js-show-header-dropdown" alt="ICON">                            
                             <!-- Header cart noti -->
                             <div class="header-cart header-dropdown">
                                 <div class="col-md-12 p-b-30">
-                                    <form class="leave-comment">
+                                    <form class="leave-comment" action="Inicio" method="post">
                                         <h4 class="m-text26 p-b-36 p-t-15">
                                             Iniciar Sesión
                                         </h4>
 
                                         <div class="bo4 of-hidden size15 m-b-20">
-                                            <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="correo" placeholder="Correo">
+                                            <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="correo o nombre de usuario" placeholder="Correo">
                                         </div>
 
                                         <div class="bo4 of-hidden size15 m-b-20">
@@ -103,7 +115,7 @@
                                         </div><br>
                                         <div class="w-size25">
                                             <!-- Button -->
-                                            <button class="flex-c-m size1 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
+                                            <button type="submit" class="flex-c-m size1 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
                                                 Iniciar sesión
                                             </button>
                                         </div>
