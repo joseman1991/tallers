@@ -29,6 +29,7 @@ insert into usuarios values('evelyn','qwer123','Evelyn','','Jaramillo','','evej@
 
 select * from usuarios;
 
+
 create table tipo(
 idtipo int not null primary key,
 descripcion character varying(20) not null

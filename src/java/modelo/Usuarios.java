@@ -22,6 +22,7 @@ private String    nombreusuario ;
  private String imagen;
  private String direccion;
  private String dni;
+ private String saludo;
 
     public String getNombreusuario() {
         return nombreusuario;
@@ -114,9 +115,14 @@ private String    nombreusuario ;
     public void setDni(String dni) {
         this.dni = dni;
     }
- 
- 
- 
-    
+
+    public String getSaludo() {
+        saludo="Hola, "+nombre1;
+        return saludo;
+    }
+
+    public void setSaludo(String saludo) {
+        this.saludo = saludo;
+    }    
     
 }

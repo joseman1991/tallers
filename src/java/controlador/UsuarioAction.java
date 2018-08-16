@@ -48,7 +48,6 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
                 enviarMensaje.enviarConGMail(usuarios.getCorreo(), "Bienvenido a Beauty Spa Center", "Gracias por registrarte "
                         + " en nuestro spa,");
                 mensaje = "Registro exitoso para el usuario " + usuarios.getNombreusuario();
-
                 return SUCCESS;
             } else {
                 mensaje = "ha ocurrido un error";
@@ -65,29 +64,20 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
 
     public String login() {
         try {
-            Usuarios user = (Usuarios) ServletActionContext.getRequest().getSession().getAttribute("usuario");
-            if (user != null) {
-                ServletActionContext.getRequest().getSession().setAttribute("usuario", user);
-                mensaje = "Usuario logueado";
-
-                return SUCCESS;
-            } 
+           
             usuarios = udao.obtenerUsusario(usuarios);
-
             if (usuarios != null) {
                 ServletActionContext.getRequest().getSession().setAttribute("usuario", usuarios);
                 ServletActionContext.getRequest().getSession().setAttribute("listaItems", listaItems);
                 ServletActionContext.getRequest().getSession().setAttribute("cantidad", cantidad);
                 ServletActionContext.getRequest().getSession().setAttribute("cantidadSer", 0);
                 ServletActionContext.getRequest().getSession().setAttribute("elementos", 0);
-                mensaje = "Usuario logueado";
-                System.out.println(mensaje);
                 return "success";
             } else {
                 usuarios = new Usuarios();
                 usuarios.setEstado("No login");
-                ServletActionContext.getRequest().getSession().setAttribute("usuario", usuarios);
-                mensaje = "error no logueado";
+               // ServletActionContext.getRequest().getSession().setAttribute("usuario", usuarios);
+                mensaje = "usuario o contraseña incorrecta";
                 return "error";
             }
         } catch (SQLException ex) {
