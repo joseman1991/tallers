@@ -5,6 +5,9 @@
 <struts>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
-        
+        <action name="registro" class="controlador.UsuarioAction" method="insertar">
+            <result name="success"> registro_ok.jsp</result>
+            <result name="error"> 404.jsp</result>            
+        </action>
     </package>
 </struts>
