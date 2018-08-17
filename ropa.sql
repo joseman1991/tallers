@@ -72,12 +72,12 @@ create table items(
 -------------------------------------
 insert into items values(default,'Maleta negra','Algo','Algo2',75.00,0,1,1,'item-02.jpg',5);
 insert into items values(default,'Chaqueta azul','Algo','Algo2',36.50,0,1,1,'item-03.jpg',5);
-insert into items values(default,'Reloj delgado negro','Algo','Algo2',165.90,0,1,1,'banner-03.jpg',5);
-insert into items values(default,'Shorts femenino azul','Algo','Algo2',29.40,45,1,1,'item-07.jpg',5);
+insert into items values(default,'Reloj delgado negro','Algo','Algo2',165.90,0,1,1,'item-cart-05.jpg',5);
+insert into items values(default,'Shorts femenino azul','Algo','Algo2',29.50,40,1,1,'item-07.jpg',5);
 insert into items values(default,'Maleta negra','Algo','Algo2',75.00,0,1,1,'item-02.jpg',5);
 insert into items values(default,'Chaqueta azul','Algo','Algo2',36.50,0,1,1,'item-03.jpg',5);
-insert into items values(default,'Reloj delgado negro','Algo','Algo2',165.90,0,1,1,'banner-03.jpg',5);
-insert into items values(default,'Shorts femenino azul','Algo','Algo2',29.40,45,1,1,'item-07.jpg',5);
+insert into items values(default,'Reloj delgado negro','Algo','Algo2',165.90,0,1,1,'item-cart-05.jpg',5);
+insert into items values(default,'Shorts femenino azul','Algo','Algo2',29.50,45,1,1,'item-07.jpg',5);
 /*
 insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
 insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);

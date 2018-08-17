@@ -129,14 +129,17 @@ public class Items implements Serializable{
 
     public Categorias getCategorias() {
         return categorias;
-    }
+    } 
 
     public void setCategorias(Categorias categorias) {
         this.categorias = categorias;
     }
     
     
-    
+    public String getDesc(){
+        float f=precio*descuento/100;
+        return  String.format("%.2f", f);
+    }
     
     
 

@@ -15,10 +15,11 @@
         <%
             session.setAttribute("usuario", null);
             session.setAttribute("listaItems", null);
+            //session.setAttribute("lista", null);
             session.setAttribute("reserva", null);
             session.invalidate();
             
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("Bienvenido");
         %>
     </body>
 </html>

@@ -8,7 +8,7 @@ package modelo;
 /**
  *
  * @author Abigail
- */
+ */ 
 public class Usuarios {
     
 private String    nombreusuario ;
@@ -16,9 +16,9 @@ private String    nombreusuario ;
  private String nombre1 ;
  private String nombre2 ;
  private String apellidop ;
- private String apellidon ;
+ private String apellidon ; 
  private String correo; 
- private String estado;
+ private String estado; 
  private String imagen;
  private String direccion;
  private String dni;

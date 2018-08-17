@@ -10,12 +10,14 @@ import com.opensymphony.xwork2.ModelDriven;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import modelo.Imagenes;
 import modelo.ImagenesDAO;
 import modelo.Items;
 import modelo.ItemsDAO;
 import modelo.Opinion;
 import modelo.OpinionDAO;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -23,7 +25,8 @@ import modelo.OpinionDAO;
  */
 public class Producto extends ActionSupport implements ModelDriven<Items> {
 
-    
+    private final HttpSession session;
+
     private List<Opinion> listOpiniones;
     private final OpinionDAO odao;
     private int page;
@@ -38,19 +41,21 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
 
     public Producto() {
         item = new Items();
-        listaProductos= new ArrayList<>();
+        listaProductos = new ArrayList<>();
         idao = new ItemsDAO(listaProductos);
-        listaImagenes= new ArrayList<>();
+        listaImagenes = new ArrayList<>();
         imgdao = new ImagenesDAO(listaImagenes);
         listOpiniones = new ArrayList<>();
-        odao= new OpinionDAO(listOpiniones);
-        page=1;
+        odao = new OpinionDAO(listOpiniones);
+        page = 1;
+        mensaje = "";
+        session = ServletActionContext.getRequest().getSession();
     }
 
     public String obtenerProducto() {
         try {
             item = idao.obtenerItem(producto);
-            idao.obtenerRelacionados(1,item.getIdcategorias());
+            idao.obtenerRelacionados(1, item.getIdcategorias());
             imgdao.obtenerImagenes(producto);
             odao.obtenerLista(producto);
             return SUCCESS;
@@ -60,10 +65,11 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
             return ERROR;
         }
     }
+
     public String buscar() {
         try {
             item = idao.obtenerItem(producto);
-            idao.obtenerItems(1,busqueda);
+            idao.obtenerItems(1, busqueda);
             imgdao.obtenerImagenes(producto);
             odao.obtenerLista(producto);
             return SUCCESS;
@@ -73,12 +79,13 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
             return ERROR;
         }
     }
-    
+
     public String obtenerLista() {
         try {
             item = idao.obtenerItem(producto);
-            idao.obtenerItems(1,"");            
-            imgdao.obtenerImagenes(producto);           
+            idao.obtenerItems(1, "");
+            imgdao.obtenerImagenes(producto);
+            session.setAttribute("lista", listaProductos);
             return SUCCESS;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -86,7 +93,6 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
             return ERROR;
         }
     }
-    
 
     @Override
     public Items getModel() {
@@ -105,10 +111,6 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
         return mensaje;
     }
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-
     public int getProducto() {
         return producto;
     }
@@ -124,8 +126,8 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
     public List<Items> getListaProductos() {
         return listaProductos;
     }
-    
-     public List<Opinion> getListOpiniones() {
+
+    public List<Opinion> getListOpiniones() {
         return listOpiniones;
     }
 
@@ -148,9 +150,5 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
     public void setPage(int page) {
         this.page = page;
     }
-    
-    
-    
-    
 
 }

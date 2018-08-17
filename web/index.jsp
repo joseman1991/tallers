@@ -40,13 +40,13 @@
         <!--===============================================================================================-->
     </head>
     <body class="animsition"> 
-        <s:url action="obtener" var="obt"/>
-        <s:if test="listaProductos==null">
-           <s:action name="%{obt}" executeResult="true"/>
+        <jsp:include page="header.jsp"/>
+        <s:if test="%{#lista==null && #user==null}" >
+            <% response.sendRedirect("Bienvenido");%>
         </s:if>
         <!-- Header -->
-        <jsp:include page="header.jsp"/>
-       
+
+
         <!-- Slide1 -->
         <section class="slide1">
             <div class="wrap-slick1">
@@ -212,300 +212,57 @@
                 <!-- Slide2 -->
                 <div class="wrap-slick2">
                     <div class="slick2">
-                        <s:iterator value="listaProductos">
-                            <h1><s:property value="nombre"/></h1>
+                        <s:iterator value="#lista" var="p">
+                            <div class="item-slick2 p-l-15 p-r-15">
+                                <!-- Block2 -->
+                                <div class="block2">
+                                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                        <img src="images/<s:property value="#p.imagen"/>" alt="IMG-PRODUCT">
+
+                                        <div class="block2-overlay trans-0-4">
+                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                            </a>
+
+                                            <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                <!-- Button -->
+                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                    Añadir al carrito
+                                                </button>
+                                                <input type="hidden" value="<s:property value="#p.iditem"/>" class="iditem"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="block2-txt p-t-20">
+                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
+                                            <s:property value="#p.nombre"/>
+                                        </a>
+                                        <s:if test="#p.descuento>0">
+                                            <span class="block2-oldprice m-text7 p-r-5">
+                                                <s:property value="#p.precio"/>   
+                                            </span>
+
+                                            <span class="block2-newprice m-text8 p-r-5">
+                                                <s:property value="#p.desc"/>
+                                            </span>
+                                        </s:if>
+                                        <s:else>
+                                            <span class="block2-price m-text6 p-r-5">
+                                                <s:property value="#p.precio"/>
+                                            </span>
+                                        </s:else>
+                                    </div>
+                                </div>
+                            </div>
                         </s:iterator>
                     </div>
                 </div>
             </div>
         </section>
         <!-- New Product -->
-        <section class="newproduct bgwhite p-t-45 p-b-105">
-            <div class="container">
-                <div class="sec-title p-b-60">
-                    <h3 class="m-text5 t-center">
-                        Productos destacados
-                    </h3>
-                </div>
 
-                <!-- Slide2 -->
-                <div class="wrap-slick2">
-                    <div class="slick2">
-
-                        <div class="item-slick2 p-l-15 p-r-15">
-                            <!-- Block2 -->
-                            <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                    <img src="images/item-02.jpg" alt="IMG-PRODUCT">
-
-                                    <div class="block2-overlay trans-0-4">
-                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                        </a>
-
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Añadir al carrito
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="block2-txt p-t-20">
-                                    <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Maleta negra
-                                    </a>
-
-                                    <span class="block2-price m-text6 p-r-5">
-                                        $75.00
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-slick2 p-l-15 p-r-15">
-                            <!-- Block2 -->
-                            <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                    <img src="images/item-03.jpg" alt="IMG-PRODUCT">
-
-                                    <div class="block2-overlay trans-0-4">
-                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                        </a>
-
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Añadir al carrito
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="block2-txt p-t-20">
-                                    <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Chaqueta Jean Azul
-                                    </a>
-
-                                    <span class="block2-price m-text6 p-r-5">
-                                        $92.50
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-slick2 p-l-15 p-r-15">
-                            <!-- Block2 -->
-                            <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                    <img src="images/item-05.jpg" alt="IMG-PRODUCT">
-
-                                    <div class="block2-overlay trans-0-4">
-                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                        </a>
-
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Añadir al carrito
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="block2-txt p-t-20">
-                                    <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Reloj delgado negro
-                                    </a>
-
-                                    <span class="block2-price m-text6 p-r-5">
-                                        $165.90
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-slick2 p-l-15 p-r-15">
-                            <!-- Block2 -->
-                            <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                    <img src="images/item-07.jpg" alt="IMG-PRODUCT">
-
-                                    <div class="block2-overlay trans-0-4">
-                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                        </a>
-
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Añadir al carrito
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="block2-txt p-t-20">
-                                    <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Shorts femenino azul
-                                    </a>
-
-                                    <span class="block2-oldprice m-text7 p-r-5">
-                                        $29.50
-                                    </span>
-
-                                    <span class="block2-newprice m-text8 p-r-5">
-                                        $15.90
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-slick2 p-l-15 p-r-15">
-                            <!-- Block2 -->
-                            <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                    <img src="images/item-02.jpg" alt="IMG-PRODUCT">
-
-                                    <div class="block2-overlay trans-0-4">
-                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                        </a>
-
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Añadir al carrito
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="block2-txt p-t-20">
-                                    <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Herschel supply co 25l
-                                    </a>
-
-                                    <span class="block2-price m-text6 p-r-5">
-                                        $75.00
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-slick2 p-l-15 p-r-15">
-                            <!-- Block2 -->
-                            <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                    <img src="images/item-03.jpg" alt="IMG-PRODUCT">
-
-                                    <div class="block2-overlay trans-0-4">
-                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                        </a>
-
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Añadir al carrito
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="block2-txt p-t-20">
-                                    <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Denim jacket blue
-                                    </a>
-
-                                    <span class="block2-price m-text6 p-r-5">
-                                        $92.50
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-slick2 p-l-15 p-r-15">
-                            <!-- Block2 -->
-                            <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                    <img src="images/item-05.jpg" alt="IMG-PRODUCT">
-
-                                    <div class="block2-overlay trans-0-4">
-                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                        </a>
-
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Añadir al carrito
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="block2-txt p-t-20">
-                                    <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Coach slim easton black
-                                    </a>
-
-                                    <span class="block2-price m-text6 p-r-5">
-                                        $165.90
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-slick2 p-l-15 p-r-15">
-                            <!-- Block2 -->
-                            <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                    <img src="images/item-07.jpg" alt="IMG-PRODUCT">
-
-                                    <div class="block2-overlay trans-0-4">
-                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                        </a>
-
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Añadir al carrito
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="block2-txt p-t-20">
-                                    <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Frayed denim shorts
-                                    </a>
-                                    <span class="block2-oldprice m-text7 p-r-5">
-                                        $29.50
-                                    </span>
-
-                                    <span class="block2-newprice m-text8 p-r-5">
-                                        $15.90
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Banner2 -->
         <section class="banner2 bg5 p-t-55 p-b-55">
@@ -733,22 +490,45 @@
         <script type="text/javascript">
             //header-cart
             var ul = $(".header-cart ul");
+            var cart = $(".cart");
             $('.block2-btn-addcart').each(function () {
                 var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
                 $(this).on('click', function () {
-                    ul.append("<li class='header-cart-item'>" +
-                            "<div class='header-cart-item-img'>" +
-                            "<img src='images/item-cart-01.jpg' alt='IMG'>" +
-                            "</div>" +
-                            "<div class='header-cart-item-txt'>" +
-                            "<a href='#' class='header-cart-item-name'>" +
-                            "White Shirt With Pleat Detail Back" +
-                            "</a>" +
-                            "<span class='header-cart-item-info'>" +
-                            "1 x $19.00" +
-                            "</span>" +
-                            "</div>" +
-                            "</li>");
+                    var iditem = $(this).find('input:hidden');
+                    var item = {
+                        "items": {
+                            "iditem": iditem.val()
+                        }};
+                 
+                    
+                    $.ajax({
+                        url: "add_to_cart",
+                        data: JSON.stringify(item),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        type: 'POST',
+                        async: true,
+                        success: function (res) {
+                            var p = res.items;
+                            cart.html(res.cantidad);
+                            ul.append("<li class='header-cart-item'>" +
+                                    "<div class='header-cart-item-img'>" +
+                                    "<img src='images/" + p.imagen + "' alt='IMG'>" +
+                                    "</div>" +
+                                    "<div class='header-cart-item-txt'>" +
+                                    "<a href='#' class='header-cart-item-name'>" +
+                                    "" + p.nombre +
+                                    "</a>" +
+                                    "<span class='header-cart-item-info'>" +
+                                    "1 x $" + p.precio +
+                                    "</span>" +
+                                    "</div>" +
+                                    "</li>");
+                        }
+                    });
+
+
+
                     swal(nameProduct, "Fue añadido al carrito !", "success");
                 });
             });

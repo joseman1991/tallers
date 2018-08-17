@@ -13,6 +13,7 @@ import java.util.List;
 import javax.mail.MessagingException;
 import modelo.EnviarMensaje;
 import modelo.Items;
+import modelo.ItemsDAO;
 import modelo.Usuarios;
 import modelo.UsuariosDAO;
 import org.apache.struts2.ServletActionContext;
@@ -34,7 +35,7 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
         udao = new UsuariosDAO();
         usuarios = new Usuarios();
         listaItems = new ArrayList<>();
-        mensaje="";
+        mensaje = "";
     }
 
     @Override
@@ -66,7 +67,8 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
 
     public String login() {
         try {
-
+            List<Items> ArrList= new ArrayList<>();
+            new ItemsDAO(ArrList).obtenerItems(1, "");
             usuarios = udao.obtenerUsusario(usuarios);
             if (usuarios != null) {
                 ServletActionContext.getRequest().getSession().setAttribute("usuario", usuarios);
@@ -74,6 +76,7 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
                 ServletActionContext.getRequest().getSession().setAttribute("cantidad", cantidad);
                 ServletActionContext.getRequest().getSession().setAttribute("cantidadSer", 0);
                 ServletActionContext.getRequest().getSession().setAttribute("elementos", 0);
+                ServletActionContext.getRequest().getSession().setAttribute("lista", ArrList);
                 switch (pagina) {
                     case 1:
                         return "index";
@@ -83,7 +86,7 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
 
                     case 3:
                         return "producto";
-                        
+
                     //break;
                     default:
                         return SUCCESS;

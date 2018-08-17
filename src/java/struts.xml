@@ -3,19 +3,22 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+    
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default" namespace="/">
+     
         <action name="registro" class="controlador.UsuarioAction" method="insertar">
             <result name="success"> registro.jsp</result>
             <result name="error"> error.jsp</result>            
-        </action>
-        
+        </action> 
+          
         
         <action name="Inicio" class="controlador.UsuarioAction" method="login">
             <result name="success">   
                 index.jsp   
-            </result>            
+            </result>             
             <result name="index">   
                 index.jsp   
             </result>            
@@ -28,10 +31,52 @@
             <result name="error">index.jsp</result>
         </action> 
         
-        <action name="obtener" class="controlador.Producto" method="obtenerLista">
+        <action name="Bienvenido" class="controlador.Producto" method="obtenerLista">
             <result name="success">index.jsp</result>
             <result name="error"> error.jsp</result>            
         </action>  
         
+        <action name="tienda" class="controlador.Producto" method="obtenerLista">
+            <result name="success">product.jsp</result>
+            <result name="error"> error.jsp</result>            
+        </action>  
+        
     </package>
+    
+    
+     <package name="dinamico" extends="json-default" >
+        <interceptors>
+            <interceptor-stack name="defaultStack"> 
+                <interceptor-ref name="json">
+                    <param name="enableSMD">true</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="defaultStack" />
+        
+        
+        <action name="add_to_cart" class="controlador.Carrito" method="add_to_cart">            
+            <result name="success" type="json"></result>
+            <result name="error" type="json"></result>           
+        </action>
+        <action name="add_to_car" class="controlador.Carrito" method="add_to_car">            
+            <result name="success" type="json"></result>
+            <result name="error" type="json"></result>           
+        </action>
+        
+        <action name="add_to_reserv" class="controlador.Carrito" method="add_to_reserv">            
+            <result name="success" type="json"></result>
+            <result name="error" type="json"></result>           
+        </action>
+        <action name="del_to_car" class="controlador.Carrito" method="eliminarArt">            
+            <result name="success" type="json"></result>
+            <result name="error" type="json"></result>           
+        </action>
+        <action name="comprobar" class="controlador.ReservaAction" method="comprobarReserva">            
+            <result name="success" type="json"></result>
+            <result name="error" type="json"></result>           
+        </action>
+    </package>
+    
+    
 </struts>

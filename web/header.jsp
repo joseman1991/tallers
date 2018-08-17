@@ -12,8 +12,14 @@
         <title>JSP Page</title>
     </head>
     <s:set name="user" value="#session['usuario']"/>
+    <s:set name="lista" value="#session['lista']"/>
+    <s:set name="carro" value="#session['listaItems']"/>
+    <s:set name="cant" value="#session['cantidad']"/>
     <body>
-
+        <s:url action="Bienvenido" var="index"/>
+        <s:url action="tienda" var="pro" />
+            
+        
         <header class="header1">
             <!-- Header desktop -->
             <div class="container-menu-header">
@@ -45,7 +51,7 @@
 
                     <!-- Logo -->
 
-                    <a href="index.jsp" class="logo">
+                    <a href="<s:property value="#index"/>" class="logo">
                         <img src="images/icons/logo.png" alt="IMG-LOGO">
                     </a>
 
@@ -54,12 +60,12 @@
                         <nav class="menu">
                             <ul class="main_menu">
                                 <li>
-                                    <a href="index.jsp">Inicio</a>
+                                    <a href="<s:property value="#index"/>">Inicio</a>
 
                                 </li>
 
                                 <li>
-                                    <a href="product.jsp">Tienda</a>
+                                    <a href="<s:property value="#pro"/>">Tienda</a>
                                 </li>
 
                                 <li class="sale-noti">
@@ -80,16 +86,8 @@
                             </ul>
                         </nav>
                     </div>
+                    
 
-                    <s:set name="msg"><s:property value="mensaje"/></s:set>
-                    <s:if test='!(#msg.equals(""))'>
-                        <div class="alert alert-danger "   role="alert" id="nus">
-                            <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
-                                &times;
-                            </a>
-                            <strong>¡Error! </strong> <s:property value="mensaje"/>.
-                        </div>
-                    </s:if>
                     <!-- Header Icon -->
                     <div class="header-icons">
 
@@ -137,52 +135,28 @@
 
                         <div class="header-wrapicon2">
                             <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-                            <span class="header-icons-noti ">0</span>
+                            <span class="header-icons-noti cart"><s:property value="#cant"/></span>
                             <!-- Header cart noti -->
                             <div class="header-cart header-dropdown">
                                 <ul class="header-cart-wrapitem">                                    
-                                    <li class="header-cart-item">
-                                        <div class="header-cart-item-img">
-                                            <img src="images/item-cart-01.jpg" alt="IMG">
-                                        </div>
-                                        <div class="header-cart-item-txt">
-                                            <a href="#" class="header-cart-item-name">
-                                                White Shirt With Pleat Detail Back
-                                            </a>
-                                            <span class="header-cart-item-info">
-                                                1 x $19.00
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li class="header-cart-item">
-                                        <div class="header-cart-item-img">
-                                            <img src="images/item-cart-02.jpg" alt="IMG">
-                                        </div>
+                                   <s:iterator value="#carro" var="c">
+                                        <li class="header-cart-item">
+                                            <div class="header-cart-item-img">
+                                                <img src="images/<s:property value="item.imagen"/>" alt="IMG">
+                                            </div>
 
-                                        <div class="header-cart-item-txt">
-                                            <a href="#" class="header-cart-item-name">
-                                                Converse All Star Hi Black Canvas
-                                            </a>
-                                            <span class="header-cart-item-info">
-                                                1 x $39.00
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li class="header-cart-item">
-                                        <div class="header-cart-item-img">
-                                            <img src="images/item-cart-03.jpg" alt="IMG">
-                                        </div>
+                                            <div class="header-cart-item-txt">
+                                                <a href="#" class="header-cart-item-name">
+                                                    <s:property value="item.nombre"/>
+                                                </a>
 
-                                        <div class="header-cart-item-txt">
-                                            <a href="#" class="header-cart-item-name">
-                                                Nixon Porter Leather Watch In Tan
-                                            </a>
-
-                                            <span class="header-cart-item-info">
-                                                1 x $17.00
-                                            </span>
-                                        </div>
-                                    </li>
+                                                <span class="header-cart-item-info">
+                                                     <s:property value="cantidad"/>
+                                                     x  <s:property value="precio"/>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </s:iterator>
                                 </ul>
 
                                 <div class="header-cart-total">
@@ -276,58 +250,30 @@
 
                         <div class="header-wrapicon2">
                             <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-                            <span class="header-icons-noti">0</span>
+                            <span class="header-icons-noti cart" ><s:property value="#cant"/></span>
 
                             <!-- Header cart noti -->
                             <div class="header-cart header-dropdown">
                                 <ul class="header-cart-wrapitem">
-                                    <li class="header-cart-item">
-                                        <div class="header-cart-item-img">
-                                            <img src="images/item-cart-01.jpg" alt="IMG">
-                                        </div>
+                                    <s:iterator value="#carro" var="c">
+                                        <li class="header-cart-item">
+                                            <div class="header-cart-item-img">
+                                                <img src="images/<s:property value="item.imagen"/>" alt="IMG">
+                                            </div>
 
-                                        <div class="header-cart-item-txt">
-                                            <a href="#" class="header-cart-item-name">
-                                                White Shirt With Pleat Detail Back
-                                            </a>
+                                            <div class="header-cart-item-txt">
+                                                <a href="#" class="header-cart-item-name">
+                                                    <s:property value="item.nombre"/>
+                                                </a>
 
-                                            <span class="header-cart-item-info">
-                                                1 x $19.00
-                                            </span>
-                                        </div>
-                                    </li>
-
-                                    <li class="header-cart-item">
-                                        <div class="header-cart-item-img">
-                                            <img src="images/item-cart-02.jpg" alt="IMG">
-                                        </div>
-
-                                        <div class="header-cart-item-txt">
-                                            <a href="#" class="header-cart-item-name">
-                                                Converse All Star Hi Black Canvas
-                                            </a>
-
-                                            <span class="header-cart-item-info">
-                                                1 x $39.00
-                                            </span>
-                                        </div>
-                                    </li>
-
-                                    <li class="header-cart-item">
-                                        <div class="header-cart-item-img">
-                                            <img src="images/item-cart-03.jpg" alt="IMG">
-                                        </div>
-
-                                        <div class="header-cart-item-txt">
-                                            <a href="#" class="header-cart-item-name">
-                                                Nixon Porter Leather Watch In Tan
-                                            </a>
-
-                                            <span class="header-cart-item-info">
-                                                1 x $17.00
-                                            </span>
-                                        </div>
-                                    </li>
+                                                <span class="header-cart-item-info">
+                                                     <s:property value="cantidad"/>
+                                                     x  <s:property value="precio"/>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </s:iterator>
+                                    
                                 </ul>
 
                                 <div class="header-cart-total">
