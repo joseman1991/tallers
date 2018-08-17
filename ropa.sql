@@ -46,11 +46,12 @@ create table categorias(
 
 select * from categorias;
 
-insert into categorias values(1,'COSMÉTICOS','service_01.jpg');
-insert into categorias values(2,'PELUQUERÍA','service_02.jpg');
-insert into categorias values(3,'TRATEMIENTOS EN EL CUERPO','service_03.jpg');
-insert into categorias values(4,'MASAJES','service_04.jpg');
-insert into categorias values(5,'UÑAS','service_05.jpg');
+insert into categorias values(1,'VESTIDOS','banner-02.jpg');
+insert into categorias values(2,'BLUSAS','f.jpg');
+insert into categorias values(3,'BOLSOS','banner-10.jpg');
+insert into categorias values(4,'ACCESORIOS','banner-05.jpg');
+insert into categorias values(5,'PANTALONES','banner-06.jpg');
+insert into categorias values(6,'CALZADO','banner-07.jpg');
 
 drop sequence if exists sig_item;
 create sequence sig_item;
@@ -68,28 +69,27 @@ create table items(
  rate float
 );
 
-insert into items values(default,'FACIAL','Algo',null,4.99,0,2,1,0);
-insert into items values(default,'TRATAMIENTO DE ACNE','Algo',null,4.99,0,2,1,0);
-insert into items values(default,'LAVADO','Algo',null,10.50,0,2,2,0);
-insert into items values(default,'ENVOLTURAS CORPORALES','Algo más',null,4.99,10.5,2,3,0);
-insert into items values(default,'MASAJE DE AROMATERAPIA','Algo',null,4.99,0,2,4,0);
-insert into items values(default,'MASAGE CON PIEDRAS','Algo',null,4.99,0,2,4,0);
 -------------------------------------
-insert into items values(default,'Almond Supple Skin Oil','Algo','Algo2',38.50,0,1,1,'Almond-Supple-Skin-Oil-2-300x300.jpg',5);
-insert into items values(default,'Almond Tonic Body Oil','Algo','Algo2',36.50,15.07,1,1,'Almond-Tonic-Body-Oil-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',0);
-insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,11.54,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
-
+insert into items values(default,'Maleta negra','Algo','Algo2',75.00,0,1,1,'item-02.jpg',5);
+insert into items values(default,'Chaqueta azul','Algo','Algo2',36.50,0,1,1,'item-03.jpg',5);
+insert into items values(default,'Reloj delgado negro','Algo','Algo2',165.90,0,1,1,'banner-03.jpg',5);
+insert into items values(default,'Shorts femenino azul','Algo','Algo2',29.40,45,1,1,'item-07.jpg',5);
+insert into items values(default,'Maleta negra','Algo','Algo2',75.00,0,1,1,'item-02.jpg',5);
+insert into items values(default,'Chaqueta azul','Algo','Algo2',36.50,0,1,1,'item-03.jpg',5);
+insert into items values(default,'Reloj delgado negro','Algo','Algo2',165.90,0,1,1,'banner-03.jpg',5);
+insert into items values(default,'Shorts femenino azul','Algo','Algo2',29.40,45,1,1,'item-07.jpg',5);
+/*
+insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
+insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
+insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
+insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
+insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
+insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
+insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
+insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
+insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',0);
+insert into items values(default,'Aroma Repairing Mask','Algo','Algo2',26,0,1,1,'Aromachology-Repairing-Mask-2-300x300.jpg',5);
+*/
 
 select * from items;
 ------------------------------------------------------------------------------------------------------------------------

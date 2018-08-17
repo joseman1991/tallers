@@ -17,7 +17,7 @@ private String    nombreusuario ;
  private String nombre2 ;
  private String apellidop ;
  private String apellidon ;
- private String correo;
+ private String correo; 
  private String estado;
  private String imagen;
  private String direccion;

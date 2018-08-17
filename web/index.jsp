@@ -2,14 +2,15 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
+<html >
     <head>
         <title>Inicio</title>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--===============================================================================================-->
         <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
         <!--===============================================================================================-->
+
         <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">        
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -38,9 +39,14 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <!--===============================================================================================-->
     </head>
-    <body class="animsition">
+    <body class="animsition"> 
+        <s:url action="obtener" var="obt"/>
+        <s:if test="listaProductos==null">
+           <s:action name="%{obt}" executeResult="true"/>
+        </s:if>
         <!-- Header -->
         <jsp:include page="header.jsp"/>
+       
         <!-- Slide1 -->
         <section class="slide1">
             <div class="wrap-slick1">
@@ -129,7 +135,7 @@
                             <div class="block1-wrapbtn w-size2">
                                 <!-- Button -->
                                 <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    Gafas de sol
+                                    Accesorios
                                 </a>
                             </div>
                         </div>
@@ -189,12 +195,30 @@
                                 </a>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </section>
 
+        <section class="newproduct bgwhite p-t-45 p-b-105">
+            <div class="container">
+                <div class="sec-title p-b-60">
+                    <h3 class="m-text5 t-center">
+                        Productos destacados
+                    </h3>
+                </div>
+
+                <!-- Slide2 -->
+                <div class="wrap-slick2">
+                    <div class="slick2">
+                        <s:iterator value="listaProductos">
+                            <h1><s:property value="nombre"/></h1>
+                        </s:iterator>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- New Product -->
         <section class="newproduct bgwhite p-t-45 p-b-105">
             <div class="container">
@@ -231,7 +255,7 @@
 
                                 <div class="block2-txt p-t-20">
                                     <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Herschel supply co 25l
+                                        Maleta negra
                                     </a>
 
                                     <span class="block2-price m-text6 p-r-5">
@@ -264,7 +288,7 @@
 
                                 <div class="block2-txt p-t-20">
                                     <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Denim jacket blue
+                                        Chaqueta Jean Azul
                                     </a>
 
                                     <span class="block2-price m-text6 p-r-5">
@@ -297,7 +321,7 @@
 
                                 <div class="block2-txt p-t-20">
                                     <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Coach slim easton black
+                                        Reloj delgado negro
                                     </a>
 
                                     <span class="block2-price m-text6 p-r-5">
@@ -330,7 +354,7 @@
 
                                 <div class="block2-txt p-t-20">
                                     <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                        Frayed denim shorts
+                                        Shorts femenino azul
                                     </a>
 
                                     <span class="block2-oldprice m-text7 p-r-5">
@@ -468,7 +492,6 @@
                                     <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
                                         Frayed denim shorts
                                     </a>
-
                                     <span class="block2-oldprice m-text7 p-r-5">
                                         $29.50
                                     </span>
@@ -481,7 +504,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -535,7 +557,7 @@
                                         </span>
 
                                         <span class="s-text5">
-                                            days
+                                            días
                                         </span>
                                     </div>
 
@@ -565,7 +587,7 @@
                                         </span>
 
                                         <span class="s-text5">
-                                            secs
+                                            segs
                                         </span>
                                     </div>
                                 </div>
@@ -709,17 +731,32 @@
         <!--===============================================================================================-->
         <script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
         <script type="text/javascript">
+            //header-cart
+            var ul = $(".header-cart ul");
             $('.block2-btn-addcart').each(function () {
-                var nameProduct = $(this).parent().parent().parent().find('.block2-name').jsp();
+                var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
                 $(this).on('click', function () {
-                    swal(nameProduct, "is added to cart !", "success");
+                    ul.append("<li class='header-cart-item'>" +
+                            "<div class='header-cart-item-img'>" +
+                            "<img src='images/item-cart-01.jpg' alt='IMG'>" +
+                            "</div>" +
+                            "<div class='header-cart-item-txt'>" +
+                            "<a href='#' class='header-cart-item-name'>" +
+                            "White Shirt With Pleat Detail Back" +
+                            "</a>" +
+                            "<span class='header-cart-item-info'>" +
+                            "1 x $19.00" +
+                            "</span>" +
+                            "</div>" +
+                            "</li>");
+                    swal(nameProduct, "Fue añadido al carrito !", "success");
                 });
             });
 
             $('.block2-btn-addwishlist').each(function () {
-                var nameProduct = $(this).parent().parent().parent().find('.block2-name').jsp();
+                var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
                 $(this).on('click', function () {
-                    swal(nameProduct, "is added to wishlist !", "success");
+                    swal(nameProduct, "fue añadido al la lista blanca !", "success");
                 });
             });
         </script>

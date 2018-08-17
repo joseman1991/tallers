@@ -34,12 +34,12 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
     private String mensaje;
     private String busqueda;
     private int producto;
-    private final List<Items> listaItems;
+    private final List<Items> listaProductos;
 
     public Producto() {
         item = new Items();
-        listaItems= new ArrayList<>();
-        idao = new ItemsDAO(listaItems);
+        listaProductos= new ArrayList<>();
+        idao = new ItemsDAO(listaProductos);
         listaImagenes= new ArrayList<>();
         imgdao = new ImagenesDAO(listaImagenes);
         listOpiniones = new ArrayList<>();
@@ -73,6 +73,20 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
             return ERROR;
         }
     }
+    
+    public String obtenerLista() {
+        try {
+            item = idao.obtenerItem(producto);
+            idao.obtenerItems(1,"");            
+            imgdao.obtenerImagenes(producto);           
+            return SUCCESS;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            mensaje = e.getMessage();
+            return ERROR;
+        }
+    }
+    
 
     @Override
     public Items getModel() {
@@ -107,8 +121,8 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
         return listaImagenes;
     }
 
-    public List<Items> getListaItems() {
-        return listaItems;
+    public List<Items> getListaProductos() {
+        return listaProductos;
     }
     
      public List<Opinion> getListOpiniones() {

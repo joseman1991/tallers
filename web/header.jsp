@@ -81,13 +81,13 @@
                         </nav>
                     </div>
 
-                    <s:set name="mensaje"><s:property value="mensaje"/></s:set>
-                    <s:if test="#mensaje!=''">
+                    <s:set name="msg"><s:property value="mensaje"/></s:set>
+                    <s:if test='!(#msg.equals(""))'>
                         <div class="alert alert-danger "   role="alert" id="nus">
                             <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
                                 &times;
                             </a>
-                            <strong>¡Error! </strong> <s:property value="mensaje"/> .
+                            <strong>¡Error! </strong> <s:property value="mensaje"/>.
                         </div>
                     </s:if>
                     <!-- Header Icon -->
@@ -122,6 +122,7 @@
                                                 <button type="submit" class="flex-c-m size1 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
                                                     Iniciar sesión
                                                 </button>
+                                                <input type="hidden" value="1" class="redireccion" name="pagina"/>
                                             </div>
                                         </form>
                                     </div>
@@ -220,14 +221,14 @@
                 <!-- Button show menu -->
                 <div class="btn-show-menu">
                     <!-- Header Icon mobile -->
-                  
-                    <s:if test="#mensaje!=''">
+
+                    <s:if test='!(#msg.equals(""))'>
                         <div class="alert alert-danger "   role="alert" id="nbs">
                             <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
                                 &times;
                             </a>
                             <strong>¡Error! </strong> <s:property value="mensaje"/>.
-                            
+
                         </div>
                     </s:if>
                     <div class="header-icons-mobile">
@@ -260,6 +261,7 @@
                                                 <button type="submit" class="flex-c-m size1 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
                                                     Iniciar sesión
                                                 </button>
+                                                <input type="hidden" value="1" class="redireccion"  name="pagina"/>
                                             </div>
                                         </form>
                                     </div>
@@ -336,14 +338,14 @@
                                     <div class="header-cart-wrapbtn">
                                         <!-- Button -->
                                         <a href="cart.jsp" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                            View Cart
+                                            Ver carrito
                                         </a>
                                     </div>
 
                                     <div class="header-cart-wrapbtn">
                                         <!-- Button -->
                                         <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                            Check Out
+                                            Comprar
                                         </a>
                                     </div>
                                 </div>

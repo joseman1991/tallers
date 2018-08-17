@@ -26,6 +26,7 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
     private Usuarios usuarios;
     private final UsuariosDAO udao;
     private String mensaje;
+    private int pagina;
     private final List<Items> listaItems;
     private int cantidad;
 
@@ -33,6 +34,7 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
         udao = new UsuariosDAO();
         usuarios = new Usuarios();
         listaItems = new ArrayList<>();
+        mensaje="";
     }
 
     @Override
@@ -64,7 +66,7 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
 
     public String login() {
         try {
-           
+
             usuarios = udao.obtenerUsusario(usuarios);
             if (usuarios != null) {
                 ServletActionContext.getRequest().getSession().setAttribute("usuario", usuarios);
@@ -72,11 +74,25 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
                 ServletActionContext.getRequest().getSession().setAttribute("cantidad", cantidad);
                 ServletActionContext.getRequest().getSession().setAttribute("cantidadSer", 0);
                 ServletActionContext.getRequest().getSession().setAttribute("elementos", 0);
-                return "success";
+                switch (pagina) {
+                    case 1:
+                        return "index";
+
+                    case 2:
+                        return "contato";
+
+                    case 3:
+                        return "producto";
+                        
+                    //break;
+                    default:
+                        return SUCCESS;
+
+                }
             } else {
                 usuarios = new Usuarios();
                 usuarios.setEstado("No login");
-               // ServletActionContext.getRequest().getSession().setAttribute("usuario", usuarios);
+                // ServletActionContext.getRequest().getSession().setAttribute("usuario", usuarios);
                 mensaje = "usuario o contraseña incorrecta";
                 return "error";
             }
@@ -96,6 +112,10 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
 
     public String getMensaje() {
         return mensaje;
+    }
+
+    public void setPagina(int pagina) {
+        this.pagina = pagina;
     }
 
 }
