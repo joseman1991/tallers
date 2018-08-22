@@ -14,6 +14,11 @@
             <result name="error"> error.jsp</result>            
         </action> 
           
+        <action name="actualizar" class="controlador.UsuarioAction" method="actualizar">
+            <result name="success"> actualizar.jsp</result>
+            <result name="error"> error.jsp</result>            
+        </action> 
+          
         
         <action name="Inicio" class="controlador.UsuarioAction" method="login">
             <result name="success">   
@@ -38,6 +43,10 @@
         
         <action name="tienda" class="controlador.Producto" method="obtenerLista">
             <result name="success">product.jsp</result>
+            <result name="error"> error.jsp</result>            
+        </action>  
+        <action name="act" class="controlador.UsuarioAction" method="obtener">
+            <result name="success">actualizar.jsp</result>
             <result name="error"> error.jsp</result>            
         </action>  
         

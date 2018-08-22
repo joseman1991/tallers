@@ -65,9 +65,43 @@ public class UsuarioAction extends ActionSupport implements ModelDriven<Usuarios
 
     }
 
+    public String actualizar() {
+        try {
+            int r = udao.actualizarUsuarios(usuarios);
+            if (r > 0) {
+                mensaje = "Datos actualizados exitoso para el usuario " + usuarios.getNombreusuario();
+                usuarios = udao.obtenerUsusario(usuarios.getNombreusuario());
+                ServletActionContext.getRequest().getSession().setAttribute("usuario", usuarios);
+                return SUCCESS;
+            } else {
+                mensaje = "ha ocurrido un error";
+                System.out.println(mensaje);
+                return ERROR;
+            }
+        } catch (SQLException e) {
+            mensaje = "Ha ocurrido un error " + e.getMessage();
+            System.out.println(mensaje);
+            return ERROR;
+        }
+
+    }
+
+    public String obtener() {
+        //obtenerUsusario
+        try {
+            usuarios = udao.obtenerUsusario(usuarios.getNombreusuario());
+            
+            return SUCCESS;
+        } catch (SQLException e) {
+            mensaje = "Ha ocurrido un error " + e.getMessage();
+            System.out.println(mensaje);
+            return ERROR;
+        }
+    }
+
     public String login() {
         try {
-            List<Items> ArrList= new ArrayList<>();
+            List<Items> ArrList = new ArrayList<>();
             new ItemsDAO(ArrList).obtenerItems(1, "");
             usuarios = udao.obtenerUsusario(usuarios);
             if (usuarios != null) {

@@ -14,8 +14,7 @@ public class ConexionMySQL {
     protected ResultSet resultado;
     protected CallableStatement procedimiento;
 
-    protected void abrirConexion() throws SQLException {
-
+    protected void abrirConexion() throws SQLException { 
         String url;
         String usuario = ("root");
         String clave = ("mysql");

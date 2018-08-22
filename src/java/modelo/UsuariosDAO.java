@@ -34,6 +34,27 @@ public class UsuariosDAO extends ConexionMySQL {
         return r;
     }
 
+    public int actualizarUsuarios(Usuarios u) throws SQLException {
+        int r;
+        abrirConexion();
+        sentencia = conexion.prepareStatement("UPDATE usuarios\n"
+                + "   SET nombre1=?, nombre2=?, apellidop=?, \n"
+                + "       apellidon=?, correo=?,direccion=?, dni=?\n"
+                + " WHERE nombreusuario=?");
+        int i = 1;
+        sentencia.setString(i++, u.getNombre1());
+        sentencia.setString(i++, u.getNombre2());
+        sentencia.setString(i++, u.getApellidop());
+        sentencia.setString(i++, u.getApellidon());
+        sentencia.setString(i++, u.getCorreo());
+        sentencia.setString(i++, u.getDireccion());
+        sentencia.setString(i++, u.getDni());
+        sentencia.setString(i++, u.getNombreusuario());
+        r = sentencia.executeUpdate();
+        cerrarConexion();
+        return r;
+    }
+
     public Usuarios obtenerUsusario(Usuarios user) throws SQLException {
         abrirConexion();
         sentencia = conexion.prepareStatement("select * from usuarios where (nombreusuario=? or correo=?) and clave=?");
@@ -77,9 +98,9 @@ public class UsuariosDAO extends ConexionMySQL {
             user.setApellidop(resultado.getString(i++));
             user.setApellidon(resultado.getString(i++));
             user.setCorreo(resultado.getString(i++));
+            user.setImagen(resultado.getString(i++));
             user.setDireccion(resultado.getString(i++));
             user.setDni(resultado.getString(i++));
-            user.setImagen(resultado.getString(i++));
             user.setEstado("login");
         } else {
             user = null;

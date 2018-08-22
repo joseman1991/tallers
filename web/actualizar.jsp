@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Registro</title>
+        <title>Actualizar</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--===============================================================================================-->
@@ -37,11 +37,11 @@
 
         <!-- Header -->
         <jsp:include page="header.jsp"/>
-
+         <s:set name="us" value="usuarios"/>
         <!-- Title Page -->
         <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-06.jpg);">
             <h2 class="l-text2 t-center">
-                Registro
+                Actuallizar  
             </h2>
         </section>
 
@@ -56,10 +56,10 @@
                     </div>
 
                     <div class="col-md-6 p-b-30">
-                        <form class="leave-comment" action="registro" id="form-registro">
+                        <form class="leave-comment" action="actualizar" id="form-registro">
 
                             <h4 class="m-text26 p-b-36 p-t-15">
-                                Registrate
+                                Actualizar Datos >
                             </h4>
                             <s:set name="mensaje"><s:property value="mensaje"/></s:set>
                             <s:if test="#mensaje!=''">
@@ -67,11 +67,11 @@
                                     <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
                                         &times;
                                     </a>
-                                    <strong>¡Éxito!</strong> Usuario registrado .
+                                    <strong>¡Éxito!</strong> Datos de usuario actualizado.
                                 </div>
                             </s:if>
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="nombreusuario" placeholder="nombre de usuario" id="nu">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" value="<s:property value="#user.nombreusuario"/>" name="nombreusuario" placeholder="nombre de usuario" id="nu" readonly="">
                             </div>
                             <div class="alert alert-danger collapse"   role="alert" id="nus">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -79,28 +79,11 @@
                                 </a>
                                 <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
                             </div>
-                            <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="pclave" placeholder="clave" id="c1">
-                            </div>
-                            <div class="alert alert-danger collapse"  role="alert" id="c1s">
-                                <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
-                                    &times;
-                                </a>
-                                <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
-                            </div>
+                            
+                             
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="clave" placeholder="repite la clave" id="c">
-                            </div>
-                            <div class="alert alert-danger collapse"  role="alert" id="cs">
-                                <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
-                                    &times;
-                                </a>
-                                <strong>¡Cuidado!</strong> Es muy importante que leas este mensaje de alerta.
-                            </div>
-
-                            <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="nombre1" placeholder="Primer nombre" id="pn">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="nombre1" value="<s:property value="#user.nombre1"/>" placeholder="Primer nombre" id="pn">
                             </div>
                             <div class="alert alert-danger collapse"  role="alert" id="pns">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -110,7 +93,7 @@
                             </div>
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="nombre2" placeholder="segundo nombre" id="sn">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="nombre2" value="<s:property value="#user.nombre2"/>" placeholder="segundo nombre" id="sn">
                             </div>
                             <div class="alert alert-danger collapse"  role="alert" id="sns">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -120,7 +103,7 @@
                             </div>
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="apellidop" placeholder="primer apellido" id="ap">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="apellidop" value="<s:property value="#user.apellidop"/>" placeholder="primer apellido" id="ap">
                             </div>
                             <div class="alert alert-danger collapse"  role="alert" id="aps">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -130,7 +113,7 @@
                             </div>
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="apellidon" placeholder="segundo apellido" id="am">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="apellidon" value="<s:property value="#user.apellidon"/>" placeholder="segundo apellido" id="am">
                             </div>
                             <div class="alert alert-danger collapse"  role="alert" id="ams">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -141,7 +124,7 @@
 
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="correo" placeholder="correo" id="corre">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="correo" value="<s:property value="#user.correo"/>" placeholder="correo" id="corre">
                             </div>
                             <div class="alert alert-danger collapse"  role="alert" id="correos">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -151,7 +134,7 @@
                             </div>
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="direccion" placeholder="direccin" id="dir">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" value="<s:property value="#user.direccion"/>" name="direccion" placeholder="direccin" id="dir">
                             </div>
                             <div class="alert alert-danger collapse"  role="alert" id="dirs">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -161,7 +144,7 @@
                             </div>
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="dni" placeholder="cédula" id="ced">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="dni" value="<s:property value="#user.dni"/>" placeholder="cédula" id="ced">
                             </div>
                             <div class="alert alert-danger collapse"  role="alert" id="ceds">
                                 <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
@@ -173,7 +156,7 @@
                             <div class="w-size25">
                                 <!-- Button -->
                                 <button type="button" class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" id="boto">
-                                    Registrarse
+                                    Actualizar datos
                                 </button>
                             </div>
                         </form>
@@ -224,10 +207,9 @@
             });
         </script>
         <!--===============================================================================================-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
-        <script src="js/map-custom.js"></script>
+        
         <!--===============================================================================================-->
         <script src="js/main.js"></script>
-        <script type="text/javascript" src="js/validar.js"></script>
+        <script type="text/javascript" src="js/validar_1.js"></script>
     </body>
 </html>

@@ -20,8 +20,13 @@
         <s:url action="tienda" var="pro" >
             <s:param name="page">1</s:param>
         </s:url>
-            
-        
+        <s:url action="act" var="actu" includeParams="none">
+            <s:param name="">
+                <s:property value="#user.nombreusuario"/>
+            </s:param>
+        </s:url>
+
+
         <header class="header1">
             <!-- Header desktop -->
             <div class="container-menu-header">
@@ -74,9 +79,13 @@
                                     <a href="product.jsp">Ventas</a>
                                 </li>
 
-                                <li>
-                                    <a href="cart.jsp">Reportes</a>
-                                </li>							
+                                <s:if test="#user!=null">
+
+                                    <li>
+                                        <a href=" <s:property value="#actu"/>">Actualizar Datos</a>
+                                    </li>
+                                </s:if>
+
 
                                 <li>
                                     <a href="about.jsp">Acerca de</a>
@@ -88,7 +97,7 @@
                             </ul>
                         </nav>
                     </div>
-                    
+
 
                     <!-- Header Icon -->
                     <div class="header-icons">
@@ -141,7 +150,7 @@
                             <!-- Header cart noti -->
                             <div class="header-cart header-dropdown">
                                 <ul class="header-cart-wrapitem">                                    
-                                   <s:iterator value="#carro" var="c">
+                                    <s:iterator value="#carro" var="c">
                                         <li class="header-cart-item">
                                             <div class="header-cart-item-img">
                                                 <img src="images/<s:property value="item.imagen"/>" alt="IMG">
@@ -153,8 +162,8 @@
                                                 </a>
 
                                                 <span class="header-cart-item-info">
-                                                     <s:property value="cantidad"/>
-                                                     x  <s:property value="precio"/>
+                                                    <s:property value="cantidad"/>
+                                                    x  <s:property value="precio"/>
                                                 </span>
                                             </div>
                                         </li>
@@ -269,13 +278,13 @@
                                                 </a>
 
                                                 <span class="header-cart-item-info">
-                                                     <s:property value="cantidad"/>
-                                                     x  <s:property value="precio"/>
+                                                    <s:property value="cantidad"/>
+                                                    x  <s:property value="precio"/>
                                                 </span>
                                             </div>
                                         </li>
                                     </s:iterator>
-                                    
+
                                 </ul>
 
                                 <div class="header-cart-total">
