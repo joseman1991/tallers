@@ -5,11 +5,14 @@ drop table if exists detallereservacion;
 drop table if exists ventas;
 drop table if exists reservaciones;
 drop table if exists usuarios;
+drop table if exists perfiles;
 drop table if exists items;
 drop table if exists tipo;
 drop table if exists categorias;
 
-
+create perfiles (idperfil int primary key, descrripcion varchar(30));
+insert into perfiles values(1,'ADMINISTRADOR');
+insert into perfiles values(2,'USUARIO');
 
 create table usuarios(
  nombreusuario character varying(16) primary key not null,
@@ -21,10 +24,12 @@ create table usuarios(
  correo character varying (50) not null unique, 
  foto character varying (50)  default 'client_01.jpg',
  direccion character varying (100) not null,
- dni character varying (50) not null
+ dni character varying (50) not null,
+ idperfil int not null
 );
 
-insert into usuarios values('guisse','qwer123','Guissela','Maria','Jimenez','Balceca','guisse@gmail.com','client_01.jpg','BABAHOYO','1234567890');
+insert into usuarios values('guisse','qwer123','Guissela','Maria','Jimenez','Balceca','guisse@gmail.com','client_01.jpg','BABAHOYO','1234567890',1);
+insert into usuarios values('angie','qwer123','Angie','Gabriela','Astudillo','B','aastudillo@gmail.com','client_02.jpg','BABAHOYO','1234567890',1);
 
 
 select * from usuarios;

@@ -40,7 +40,14 @@
             <result name="success">index.jsp</result>
             <result name="error"> error.jsp</result>            
         </action>  
+      
+          <action name="actualizar" class="controlador.Producto" >
+            <result name="success">product-detail.jsp</result>
+            <result name="error"> error.jsp</result>            
+        </action>  
         
+        
+            
         <action name="tienda" class="controlador.Producto" method="obtenerLista">
             <result name="success">product.jsp</result>
             <result name="error"> error.jsp</result>            

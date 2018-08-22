@@ -52,7 +52,24 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
         session = ServletActionContext.getRequest().getSession();
     }
 
-    public String obtenerProducto() {
+     
+
+    @Override
+    public String execute() throws Exception {
+         try {
+            item = idao.obtenerItem(producto);  
+             System.out.println(item.getDescripcion());
+            return SUCCESS;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            mensaje = e.getMessage();
+            return ERROR;
+        }
+    }
+
+    
+    
+    public String obtenerItem(){
         try {
             item = idao.obtenerItem(producto);
             idao.obtenerRelacionados(1, item.getIdcategorias());
@@ -65,7 +82,7 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
             return ERROR;
         }
     }
-
+    
     public String buscar() {
         try {
             item = idao.obtenerItem(producto);

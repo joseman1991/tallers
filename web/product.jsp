@@ -151,9 +151,24 @@
 
                                                 <div class="block2-btn-addcart w-size1 trans-0-4">
                                                     <!-- Button -->
-                                                    <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                        Añadir al carrito
-                                                    </button>
+
+                                                    <s:if test="#user.idperfil==1">
+                                                        <s:url action="actualizar" var="actualizar">
+                                                            <s:param name="producto"><s:property value="iditem"/></s:param>
+                                                        </s:url>
+                                                        <s:url action="eliminar" var="eliminar">
+                                                            <s:param name="producto"><s:property value="iditem"/></s:param>
+                                                        </s:url>
+                                                         <s:a href="%{actualizar}" cssClass=" btn btn-primary btn-xs"><i class="fa fa-pencil "></i></s:a>
+                                                    <s:a href="%{eliminar}" cssClass="btn btn-danger btn-xs"><i class="fa fa-trash"></i></s:a>
+                                                    </s:if>
+                                                    <s:else>
+                                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                            Añadir al carrito
+                                                        </button>
+                                                    </s:else>
+
+                                                   
                                                     <input type="hidden" value="<s:property value="iditem"/>" class="iditem"/>
                                                 </div>
                                             </div>
@@ -213,7 +228,7 @@
 
 
         <!-- Footer -->
-   <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+        <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
             <jsp:include page="fotter.jsp"/>           
         </footer>
 
@@ -266,11 +281,12 @@
             var ul = $(".header-cart ul");
             var cart = $(".cart");
             $('.block2-btn-addcart').each(function () {
-                
+
                 var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-                $(this).on('click', function () {
-                    
-                    var iditem = $(this).find('input:hidden');                    
+
+                $(this).find(".flex-c-m").on('click', function () {
+
+                    var iditem = $(this).find('input:hidden');
                     var item = {
                         "items": {
                             "iditem": iditem.val()

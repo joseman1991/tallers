@@ -9,8 +9,7 @@ package modelo;
  *
  * @author Abigail
  */ 
-public class Usuarios {
-    
+public class Usuarios {    
 private String    nombreusuario ;
  private String clave ;
  private String nombre1 ;
@@ -23,6 +22,7 @@ private String    nombreusuario ;
  private String direccion;
  private String dni;
  private String saludo;
+ private int idperfil;
 
     public String getNombreusuario() {
         return nombreusuario;
@@ -124,5 +124,15 @@ private String    nombreusuario ;
     public void setSaludo(String saludo) {
         this.saludo = saludo;
     }    
+
+    public int getIdperfil() {
+        return idperfil;
+    }
+
+    public void setIdperfil(int idperfil) {
+        this.idperfil = idperfil;
+    }
+    
+    
     
 }

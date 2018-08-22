@@ -74,6 +74,7 @@ public class UsuariosDAO extends ConexionMySQL {
             user.setImagen(resultado.getString(i++));
             user.setDireccion(resultado.getString(i++));
             user.setDni(resultado.getString(i++));
+            user.setIdperfil(resultado.getInt(i++));
             user.setEstado("login");
         } else {
             user = null;
@@ -101,6 +102,7 @@ public class UsuariosDAO extends ConexionMySQL {
             user.setImagen(resultado.getString(i++));
             user.setDireccion(resultado.getString(i++));
             user.setDni(resultado.getString(i++));
+            user.setIdperfil(resultado.getInt(i++));
             user.setEstado("login");
         } else {
             user = null;
