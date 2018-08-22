@@ -10,7 +10,10 @@ drop table if exists items;
 drop table if exists tipo;
 drop table if exists categorias;
 
-create perfiles (idperfil int primary key, descrripcion varchar(30));
+create table perfiles (
+idperfil int primary key,
+descrripcion varchar(30)
+ );
 insert into perfiles values(1,'ADMINISTRADOR');
 insert into perfiles values(2,'USUARIO');
 
@@ -29,7 +32,7 @@ create table usuarios(
 );
 
 insert into usuarios values('guisse','qwer123','Guissela','Maria','Jimenez','Balceca','guisse@gmail.com','client_01.jpg','BABAHOYO','1234567890',1);
-insert into usuarios values('angie','qwer123','Angie','Gabriela','Astudillo','B','aastudillo@gmail.com','client_02.jpg','BABAHOYO','1234567890',1);
+insert into usuarios values('angie','qwer123','Angie','Gabriela','Astudillo','B','aastudillo@gmail.com','client_02.jpg','BABAHOYO','1234567890',2);
 
 
 select * from usuarios;
