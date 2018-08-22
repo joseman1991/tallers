@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author JOSE
  */
-public class ItemsDAO extends ConexionPSQL {
+public class ItemsDAO extends ConexionMySQL {
 
     private List<Items> listaItems;
 
@@ -50,7 +50,7 @@ public class ItemsDAO extends ConexionPSQL {
     public void obtenerItems(int id,String busca) throws SQLException {
         listaItems.clear();
         abrirConexion();
-        sentencia = conexion.prepareStatement("select * from items where idtipo=? and nombre ilike ? order by idcategorias");
+        sentencia = conexion.prepareStatement("select * from items where idtipo=? and nombre like ? order by idcategorias");
         sentencia.setInt(1, id);
         sentencia.setString(2, busca+"%");
         resultado = sentencia.executeQuery();

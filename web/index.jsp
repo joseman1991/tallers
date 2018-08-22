@@ -40,10 +40,7 @@
         <!--===============================================================================================-->
     </head>
     <body class="animsition"> 
-        <jsp:include page="header.jsp"/>
-        <s:if test="%{#lista==null && #user==null}" >
-            <% response.sendRedirect("Bienvenido");%>
-        </s:if>
+        <jsp:include page="header.jsp"/>    
         <!-- Header -->
 
 
@@ -201,6 +198,7 @@
             </div>
         </section>
 
+        <s:if test="#user!=null">
         <section class="newproduct bgwhite p-t-45 p-b-105">
             <div class="container">
                 <div class="sec-title p-b-60">
@@ -262,7 +260,7 @@
             </div>
         </section>
         <!-- New Product -->
-
+        </s:if>
 
         <!-- Banner2 -->
         <section class="banner2 bg5 p-t-55 p-b-55">
@@ -513,7 +511,7 @@
                             cart.html(res.cantidad);
                             ul.append("<li class='header-cart-item'>" +
                                     "<div class='header-cart-item-img'>" +
-                                    "<img src='images/" + p.imagen + "' alt='IMG'>" +
+                                   "<img src='images/" + p.imagen + "' alt='IMG'>" +
                                     "</div>" +
                                     "<div class='header-cart-item-txt'>" +
                                     "<a href='#' class='header-cart-item-name'>" +

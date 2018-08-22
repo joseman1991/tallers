@@ -17,7 +17,9 @@
     <s:set name="cant" value="#session['cantidad']"/>
     <body>
         <s:url action="Bienvenido" var="index"/>
-        <s:url action="tienda" var="pro" />
+        <s:url action="tienda" var="pro" >
+            <s:param name="page">1</s:param>
+        </s:url>
             
         
         <header class="header1">

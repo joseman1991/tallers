@@ -11,7 +11,7 @@ import java.sql.SQLException;
  *
  * @author Abigail
  */
-public class UsuariosDAO extends ConexionPSQL {
+public class UsuariosDAO extends ConexionMySQL {
 
     public int insertarUsuarios(Usuarios u) throws SQLException {
         int r;

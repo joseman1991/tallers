@@ -152,6 +152,7 @@ public class Carrito extends ActionSupport implements ModelDriven<Items> {
     }
 
     public String add_to_car() {
+        System.out.println("aqui");
         listaItems = (List<DetalleCompra>) session.getAttribute("listaItems");
         cantidad = 0;
         for (int i = 0; i < listaItems.size(); i++) {

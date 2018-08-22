@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author JOSE
  */
-public class CategoriasDAO extends ConexionPSQL{
+public class CategoriasDAO extends ConexionMySQL{
     private List<Categorias> listaCategorias;
 
     public CategoriasDAO(List<Categorias> listaCategorias) {

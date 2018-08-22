@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author JOSE
  */
-public class ImagenesDAO extends ConexionPSQL {
+public class ImagenesDAO extends ConexionMySQL {
 
     private final List<Imagenes> listaImagenes;
 

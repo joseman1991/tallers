@@ -30,7 +30,7 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author JOSE-MA
  */
-public class ReservasDAO extends ConexionPSQL {
+public class ReservasDAO extends ConexionMySQL {
 
     private List<Reservas> listReservas;
     private ArrayList<DetalleCompra> listDetalleCompra;

@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author JOSE
  */
-public class OpinionDAO extends ConexionPSQL {
+public class OpinionDAO extends ConexionMySQL {
 
     private  List<Opinion> listOpiniones;
 

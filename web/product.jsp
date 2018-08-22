@@ -114,16 +114,29 @@
                     <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
                         <!--  -->
                         <div class="flex-sb-m flex-w p-b-35">
+                            <s:set var="max" value="12"/> 
+                            <s:set var="count" value="listaProductos.size()"/> 
+                            <s:set var="inicio" value="#max * page - #max"/> 
+                            <s:set var="fin" value="#max * page - 1"/> 
+                            <s:if test="#count < #fin">
+                                <s:set var="fin" value="#count-1"/> 
+                            </s:if>
+                            <s:else>
 
+                            </s:else>
 
                             <span class="s-text8 p-t-5 p-b-5">
-                                Showing 1º - 12 of 16 results
+                                Mostrando 
+                                <s:property value="getText('{0,number,#,##0}',{#inicio+1})" /> - 
+                                <s:property value="getText('{0,number,#,##0}',{#fin+1})" /> de
+                                <s:property value="#count"/> 
+                                resultados
                             </span>
                         </div>
 
                         <!-- Product -->
                         <div class="row">
-                            <s:iterator value="listaProductos" >
+                            <s:iterator value="listaProductos" begin="#inicio" end="#fin">
                                 <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
                                     <!-- Block2 -->
                                     <div class="block2">
@@ -151,16 +164,16 @@
                                             </a>
                                             <s:if test="%{descuento>0}">
                                                 <span class="block2-oldprice m-text7 p-r-5">
-                                                  <s:property value="precio"/>
+                                                    <s:property value="precio"/>
                                                 </span>
 
                                                 <span class="block2-newprice m-text8 p-r-5">
-                                                  $<s:property value="desc"/>
+                                                    $<s:property value="desc"/>
                                                 </span>
                                             </s:if>
                                             <s:else>
                                                 <span class="block2-price m-text6 p-r-5">
-                                                   $<s:property value="precio"/>
+                                                    $<s:property value="precio"/>
                                                 </span>   
                                             </s:else>
 
@@ -169,415 +182,28 @@
                                 </div>
                             </s:iterator>
 
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                        <img src="images/item-02.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Herschel supply co 25l
-                                        </a>
-
-                                        <span class="block2-price m-text6 p-r-5">
-                                            $75.00
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                        <img src="images/item-03.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Denim jacket blue
-                                        </a>
-
-                                        <span class="block2-price m-text6 p-r-5">
-                                            $92.50
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                        <img src="images/item-05.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Coach slim easton black
-                                        </a>
-
-                                        <span class="block2-price m-text6 p-r-5">
-                                            $165.90
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                        <img src="images/item-07.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Frayed denim shorts
-                                        </a>
-
-                                        <span class="block2-oldprice m-text7 p-r-5">
-                                            $29.50
-                                        </span>
-
-                                        <span class="block2-newprice m-text8 p-r-5">
-                                            $15.90
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                        <img src="images/item-01.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Herschel supply co 25l
-                                        </a>
-
-                                        <span class="block2-price m-text6 p-r-5">
-                                            $75.00
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                        <img src="images/item-14.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Denim jacket blue
-                                        </a>
-
-                                        <span class="block2-price m-text6 p-r-5">
-                                            $92.50
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                        <img src="images/item-06.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Herschel supply co 25l
-                                        </a>
-
-                                        <span class="block2-price m-text6 p-r-5">
-                                            $75.00
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                        <img src="images/item-08.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Denim jacket blue
-                                        </a>
-
-                                        <span class="block2-price m-text6 p-r-5">
-                                            $92.50
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                        <img src="images/item-10.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Coach slim easton black
-                                        </a>
-
-                                        <span class="block2-price m-text6 p-r-5">
-                                            $165.90
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                        <img src="images/item-11.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Frayed denim shorts
-                                        </a>
-
-                                        <span class="block2-oldprice m-text7 p-r-5">
-                                            $29.50
-                                        </span>
-
-                                        <span class="block2-newprice m-text8 p-r-5">
-                                            $15.90
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                        <img src="images/item-12.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Herschel supply co 25l
-                                        </a>
-
-                                        <span class="block2-price m-text6 p-r-5">
-                                            $75.00
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                                <!-- Block2 -->
-                                <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                        <img src="images/item-15.jpg" alt="IMG-PRODUCT">
-
-                                        <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
-                                                <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.jsp" class="block2-name dis-block s-text3 p-b-5">
-                                            Denim jacket blue
-                                        </a>
-
-                                        <span class="block2-price m-text6 p-r-5">
-                                            $92.50
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
+                        <s:set name="mod" value="#count%#max"/>
+                        <s:set name="div" value="#count/#max"/>
+
+                        <s:if test="#mod>0">
+                            <s:set name="div" value="#count/#max+1"/>
+                        </s:if>  
                         <!-- Pagination -->
                         <div class="pagination flex-m flex-w p-t-26">
-                            <a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-                            <a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+                            <s:iterator var="i" begin="1" end="#div">
+                                <s:url action="tienda" var="clic" >
+                                    <s:param name="page"><s:property value="top"/></s:param>
+                                </s:url>  
+                                <s:if test="top==page">
+                                    <a href="<s:property value="#clic"/>" class="item-pagination flex-c-m trans-0-4 active-pagination"><s:property value="top"/></a>
+                                </s:if>
+                                <s:else>
+                                    <a href="<s:property value="#clic"/>" class="item-pagination flex-c-m trans-0-4"><s:property value="top" /></a>
+                                </s:else>
+                            </s:iterator>                                 
+
                         </div>
                     </div>
                 </div>
@@ -801,6 +427,7 @@
             $('.block2-btn-addcart').each(function () {
                 var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
                 $(this).on('click', function () {
+                    
                     swal(nameProduct, "is added to cart !", "success");
                 });
             });
