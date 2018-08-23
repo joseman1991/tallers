@@ -118,7 +118,7 @@
                             <s:set var="count" value="listaProductos.size()"/> 
                             <s:set var="inicio" value="#max * page - #max"/> 
                             <s:set var="fin" value="#max * page - 1"/> 
-                            <s:if test="#count < #fin">
+                            <s:if test="#count <= #fin">
                                 <s:set var="fin" value="#count-1"/> 
                             </s:if>
                             <s:else>
@@ -153,7 +153,7 @@
                                                     <!-- Button -->
 
                                                     <s:if test="#user.idperfil==1">
-                                                        <s:url action="actualizar" var="actualizar">
+                                                        <s:url action="act" var="actualizar">
                                                             <s:param name="producto"><s:property value="iditem"/></s:param>
                                                         </s:url>
                                                         <s:url action="eliminar" var="eliminar">

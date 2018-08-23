@@ -56,18 +56,18 @@
                     </div>
 
                     <div class="col-md-6 p-b-30">
-                        <form class="leave-comment" action="registro" id="form-registro">
-
+                        <form class="leave-comment" action="registro" id="form-registro" method="post">
+                            
                             <h4 class="m-text26 p-b-36 p-t-15">
                                 Registrate
-                            </h4>
+                            </h4>                            
                             <s:set name="mensaje"><s:property value="mensaje"/></s:set>
                             <s:if test="#mensaje!=''">
                                 <div class="alert alert-success "   role="alert" id="nus">
                                     <a id="linkClose" href="#" class="close" data-dismiss="alert" aria-label="Close">
                                         &times;
                                     </a>
-                                    <strong>¡Éxito!</strong> Usuario registrado .
+                                    <strong>¡Éxito!</strong> <s:property value="mensaje"/>
                                 </div>
                             </s:if>
                             <div class="bo4 of-hidden size15 m-b-20">

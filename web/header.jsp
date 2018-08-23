@@ -20,7 +20,7 @@
         <s:url action="tienda" var="pro" >
             <s:param name="page">1</s:param>
         </s:url>
-        <s:url action="act" var="actu" includeParams="none">
+        <s:url action="actu" var="actu" includeParams="none">
             <s:param name="">
                 <s:property value="#user.nombreusuario"/>
             </s:param>

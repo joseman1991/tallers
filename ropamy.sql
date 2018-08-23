@@ -152,7 +152,7 @@ create table detalleventa(
 );
 
 
-
+/*
 
 drop procedure if exists add_opinion;
 delimiter //

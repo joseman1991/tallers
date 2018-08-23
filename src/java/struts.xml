@@ -19,6 +19,10 @@
             <result name="error"> error.jsp</result>            
         </action> 
           
+           <action name="actu" class="controlador.UsuarioAction" method="obtener">
+            <result name="success"> actualizar.jsp</result>
+            <result name="error"> error.jsp</result>            
+        </action> 
         
         <action name="Inicio" class="controlador.UsuarioAction" method="login">
             <result name="success">   
@@ -30,8 +34,8 @@
             <result name="contato">   
                 contact.jsp   
             </result>            
-            <result name="producto">   
-                product.jsp?mensaje=hola   
+            <result name="producto" type="redirectAction">   
+                tienda
             </result>            
             <result name="error">index.jsp</result>
         </action> 
@@ -41,8 +45,23 @@
             <result name="error"> error.jsp</result>            
         </action>  
       
-          <action name="actualizar" class="controlador.Producto" >
+          <action name="act" class="controlador.Producto" >
             <result name="success">product-detail.jsp</result>
+            <result name="error"> error.jsp</result>            
+        </action>  
+        
+          <action name="actproducto" class="controlador.Producto" method="actualizarProducto">
+            <result name="success">product-detail.jsp</result>
+            <result name="error"> error.jsp</result>            
+        </action>  
+        
+          <action name="eliminar" class="controlador.Producto" >
+            <result name="success">product-detail_1.jsp</result>
+            <result name="error"> error.jsp</result>            
+        </action>  
+        
+          <action name="eliproducto" class="controlador.Producto" method="eliminarProducto">
+            <result name="success" type="redirectAction">tienda</result>
             <result name="error"> error.jsp</result>            
         </action>  
         
@@ -52,10 +71,7 @@
             <result name="success">product.jsp</result>
             <result name="error"> error.jsp</result>            
         </action>  
-        <action name="act" class="controlador.UsuarioAction" method="obtener">
-            <result name="success">actualizar.jsp</result>
-            <result name="error"> error.jsp</result>            
-        </action>  
+        
         
     </package>
     

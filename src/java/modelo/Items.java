@@ -27,6 +27,17 @@ public class Items implements Serializable{
     private float rate;
     private String imagen;
 
+    public Items() {
+        nombre="";
+        descripcion="";
+        descripcion2="";
+        imagen="";
+        categorias= new Categorias();
+    }
+
+    
+    
+    
     public int getIditem() {
         return iditem;
     }

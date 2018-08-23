@@ -52,13 +52,10 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
         session = ServletActionContext.getRequest().getSession();
     }
 
-     
-
     @Override
     public String execute() throws Exception {
-         try {
-            item = idao.obtenerItem(producto);  
-             System.out.println(item.getDescripcion());
+        try {
+            item = idao.obtenerItem(producto);
             return SUCCESS;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -67,9 +64,46 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
         }
     }
 
-    
-    
-    public String obtenerItem(){
+    public String actualizarProducto() {
+        try {
+            System.out.println("este es el id "+item.getIditem());
+            int re = idao.actualizarProducto(item);
+            if (re > 0) {
+                item=idao.obtenerItem(item.getIditem());
+                mensaje = "producto actualizado";
+                return SUCCESS;
+            } else {
+                mensaje = "ocurrió un error";
+                return ERROR;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            mensaje = e.getMessage();
+            return ERROR;
+        }
+    }
+    public String eliminarProducto() {
+        try {
+            System.out.println("este es el id "+item.getIditem());
+            int re = idao.eliminarProducto(item);
+            if (re > 0) {
+                item=idao.obtenerItem(item.getIditem());
+                mensaje = "producto eliminado";               
+                return SUCCESS;
+            } else {
+                mensaje = "ocurrió un error";
+                return ERROR;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            mensaje = e.getMessage();
+            return ERROR;
+        }
+    }
+
+    public String obtenerItem() {
         try {
             item = idao.obtenerItem(producto);
             idao.obtenerRelacionados(1, item.getIdcategorias());
@@ -82,7 +116,7 @@ public class Producto extends ActionSupport implements ModelDriven<Items> {
             return ERROR;
         }
     }
-    
+
     public String buscar() {
         try {
             item = idao.obtenerItem(producto);

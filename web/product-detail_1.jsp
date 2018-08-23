@@ -63,7 +63,7 @@
                 <s:property value="item.nombre"/>
             </span>
         </div>
-
+ <form action="eliproducto" method="post" >
         <!-- Product Detail -->
         <div class="container bgwhite p-t-35 p-b-80">
             <div class="flex-w flex-sb">
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="actproducto" method="post" >
+               
                     <s:set name="mensaje"><s:property value="mensaje"/></s:set>
                     <s:if test="#mensaje!=''">
                         <div class="alert alert-success "   role="alert" id="nus">
@@ -97,11 +97,11 @@
                     <input type="hidden" value="<s:property value="item.iditem"/>" name="iditem"/>
                     <div class="w-size14 p-t-30 respon5">
                         <h4 class="product-detail-name m-text16 p-b-13">
-                            <input type="text"  value="<s:property value="item.nombre"/>"name="nombre"/>
+                         <s:property value="item.nombre"/>
                         </h4>
 
                         <span class="m-text17">
-                            <input type="text" value=" <s:property value="item.precio"/> " name="precio">                   
+                            <s:property value="item.precio"/>               
                         </span>
 
                         <p class="s-text8 p-t-10">
@@ -128,8 +128,8 @@
 
                                     <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
                                         <!-- Button -->
-                                        <button type="submit" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            Actualizar
+                                        <button type="submit" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 btn btn-danger">
+                                            Eliminar
                                         </button>
                                     </div>
                                 </div>
@@ -147,8 +147,8 @@
                             </h5>
 
                             <div class="dropdown-content dis-none p-t-15 p-b-23">
-                                <textarea  class="form-control" rows="10" cols="1" name="descripcion"><s:property value="item.descripcion"/>     
-                                </textarea>
+                                <s:property value="item.descripcion"/>     
+                              
                             </div>
                         </div>
 
@@ -160,15 +160,15 @@
                             </h5>
 
                             <div class="dropdown-content dis-none p-t-15 p-b-23">
-                                <textarea  class="form-control" rows="10" cols="1" name="descripcion2"><s:property value="item.descripcion2"/>      
-                                </textarea>
+                            <s:property value="item.descripcion2"/>      
+                              
                             </div>
                         </div>                     
                     </div>
-                </form>
+               
             </div>
         </div>
-
+ </form>
         <!-- Relate Product -->
 
 

@@ -23,6 +23,33 @@ public class ItemsDAO extends ConexionMySQL {
     public ItemsDAO() {
     }
 
+    public int actualizarProducto(Items item) throws SQLException {
+        int re = 0;
+        abrirConexion();
+        sentencia = conexion.prepareStatement("UPDATE items\n"
+                + "   SET nombre=?, descripcion=?, descripcion2=?, precio=?,  stock=? "
+                + " WHERE iditem=?");
+        sentencia.setString(1, item.getNombre());
+        sentencia.setString(2, item.getDescripcion());
+        sentencia.setString(3, item.getDescripcion2());
+        sentencia.setFloat(4, item.getPrecio());
+        sentencia.setInt(5, item.getStock());
+        sentencia.setInt(6, item.getIditem());
+        re=sentencia.executeUpdate();
+        cerrarConexion();
+        return re;
+    }
+
+    public int eliminarProducto(Items item) throws SQLException {
+        int re = 0;
+        abrirConexion();
+        sentencia = conexion.prepareStatement("delete from items WHERE iditem=?");        
+        sentencia.setInt(1, item.getIditem());
+        re=sentencia.executeUpdate();
+        cerrarConexion();
+        return re;
+    }
+
     public void obtenerItems(int id) throws SQLException {
         listaItems.clear();
         abrirConexion();
@@ -46,13 +73,13 @@ public class ItemsDAO extends ConexionMySQL {
         }
         cerrarConexion();
     }
-    
-    public void obtenerItems(int id,String busca) throws SQLException {
+
+    public void obtenerItems(int id, String busca) throws SQLException {
         listaItems.clear();
         abrirConexion();
         sentencia = conexion.prepareStatement("select * from items where idtipo=? and nombre like ? order by idcategorias");
         sentencia.setInt(1, id);
-        sentencia.setString(2, busca+"%");
+        sentencia.setString(2, busca + "%");
         resultado = sentencia.executeQuery();
         while (resultado.next()) {
             Items c = new Items();
@@ -71,7 +98,6 @@ public class ItemsDAO extends ConexionMySQL {
         }
         cerrarConexion();
     }
-    
 
     public void obtenerRelacionados(int id, int idc) throws SQLException {
         listaItems.clear();
@@ -114,7 +140,7 @@ public class ItemsDAO extends ConexionMySQL {
             c.setDescuento(resultado.getFloat(6));
             c.setIdtipo(resultado.getInt(7));
             c.setIdcategorias(resultado.getInt(8));
-            Categorias ca= new CategoriasDAO().obtenerCategoria(resultado.getInt(8));
+            Categorias ca = new CategoriasDAO().obtenerCategoria(resultado.getInt(8));
             c.setCategorias(ca);
             c.setImagen(resultado.getString(9));
             c.setStock(resultado.getInt(10));
