@@ -72,10 +72,11 @@ create table items(
 );
 
 
-insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Maleta negra','Algo','Algo2',75.00,0.00,1,1,'item-02.jpg',5,default);
-insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Chaqueta azul','Algo','Algo2',36.50,0,1,1,'item-03.jpg',5,default);
-insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Reloj delgado negro','Algo','Algo2',165.90,0,1,1,'item-cart-05.jpg',5,default);
-insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Shorts femenino azul','Algo','Algo2',29.50,40,1,1,'item-07.jpg',5,default);
+insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Ventanas','Algo','Algo2',75.00,0.00,1,1,'item-02.jpg',5,default);
+insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Horno','Algo','Algo2',36.50,0,1,1,'item-03.jpg',5,default);
+insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Cocinas','Algo','Algo2',165.90,0,1,1,'item-cart-05.jpg',5,default);
+
+/*insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Shorts femenino azul','Algo','Algo2',29.50,40,1,1,'item-07.jpg',5,default);
 insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate)values(default,'Maleta negra','Algo','Algo2',75.00,0,1,1,'item-02.jpg',5,default);
 insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate)values(default,'Chaqueta azul','Algo','Algo2',36.50,0,1,1,'item-03.jpg',5,default);
 insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Reloj delgado negro','Algo','Algo2',165.90,0,1,1,'item-cart-05.jpg',5,default);
@@ -87,7 +88,7 @@ insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo
 insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Shorts femenino azul','Algo','Algo2',29.50,45,1,1,'item-07.jpg',5,default);
 insert into items(iditem,nombre,descripcion,descripcion2,precio,descuento,idtipo,idcategorias,imagen,stock,rate) values(default,'Shorts femenino azul','Algo','Algo2',29.50,45,1,1,'item-07.jpg',5,default);
 
-
+*/
 select * from items;
 
 
