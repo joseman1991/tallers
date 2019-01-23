@@ -9,22 +9,22 @@
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default" namespace="/">
      
-        <action name="registro" class="controlador.UsuarioAction" method="insertar">
+        <action name="registro" class="controladors.UsuarioAction" method="insertar">
             <result name="success"> registro.jsp</result>
             <result name="error"> error.jsp</result>            
         </action> 
           
-        <action name="actualizar" class="controlador.UsuarioAction" method="actualizar">
+        <action name="actualizar" class="controladors.UsuarioAction" method="actualizar">
             <result name="success"> actualizar.jsp</result>
             <result name="error"> error.jsp</result>            
         </action> 
           
-           <action name="actu" class="controlador.UsuarioAction" method="obtener">
+           <action name="actu" class="controladors.UsuarioAction" method="obtener">
             <result name="success"> actualizar.jsp</result>
             <result name="error"> error.jsp</result>            
         </action> 
         
-        <action name="Inicio" class="controlador.UsuarioAction" method="login">
+        <action name="Inicio" class="controladors.UsuarioAction" method="login">
             <result name="success">   
                 index.jsp   
             </result>             
@@ -40,34 +40,34 @@
             <result name="error">index.jsp</result>
         </action> 
         
-        <action name="Bienvenido" class="controlador.Producto" method="obtenerLista">
+        <action name="Bienvenido" class="controladors.Producto" method="obtenerLista">
             <result name="success">index.jsp</result>
             <result name="error"> error.jsp</result>            
         </action>  
       
-          <action name="act" class="controlador.Producto" >
+          <action name="act" class="controladors.Producto" >
             <result name="success">product-detail.jsp</result>
             <result name="error"> error.jsp</result>            
         </action>  
         
-          <action name="actproducto" class="controlador.Producto" method="actualizarProducto">
+          <action name="actproducto" class="controladors.Producto" method="actualizarProducto">
             <result name="success">product-detail.jsp</result>
             <result name="error"> error.jsp</result>            
         </action>  
         
-          <action name="eliminar" class="controlador.Producto" >
+          <action name="eliminar" class="controladors.Producto" >
             <result name="success">product-detail_1.jsp</result>
             <result name="error"> error.jsp</result>            
         </action>  
         
-          <action name="eliproducto" class="controlador.Producto" method="eliminarProducto">
+          <action name="eliproducto" class="controladors.Producto" method="eliminarProducto">
             <result name="success" type="redirectAction">tienda</result>
             <result name="error"> error.jsp</result>            
         </action>  
         
         
             
-        <action name="tienda" class="controlador.Producto" method="obtenerLista">
+        <action name="tienda" class="controladors.Producto" method="obtenerLista">
             <result name="success">product.jsp</result>
             <result name="error"> error.jsp</result>            
         </action>  
@@ -87,24 +87,24 @@
         <default-interceptor-ref name="defaultStack" />
         
         
-        <action name="add_to_cart" class="controlador.Carrito" method="add_to_cart">            
+        <action name="add_to_cart" class="controladors.Carrito" method="add_to_cart">            
             <result name="success" type="json"></result>
             <result name="error" type="json"></result>           
         </action>
-        <action name="add_to_car" class="controlador.Carrito" method="add_to_car">            
+        <action name="add_to_car" class="controladors.Carrito" method="add_to_car">            
             <result name="success" type="json"></result>
             <result name="error" type="json"></result>           
         </action>
         
-        <action name="add_to_reserv" class="controlador.Carrito" method="add_to_reserv">            
+        <action name="add_to_reserv" class="controladors.Carrito" method="add_to_reserv">            
             <result name="success" type="json"></result>
             <result name="error" type="json"></result>           
         </action>
-        <action name="del_to_car" class="controlador.Carrito" method="eliminarArt">            
+        <action name="del_to_car" class="controladors.Carrito" method="eliminarArt">            
             <result name="success" type="json"></result>
             <result name="error" type="json"></result>           
         </action>
-        <action name="comprobar" class="controlador.ReservaAction" method="comprobarReserva">            
+        <action name="comprobar" class="controladors.ReservaAction" method="comprobarReserva">            
             <result name="success" type="json"></result>
             <result name="error" type="json"></result>           
         </action>

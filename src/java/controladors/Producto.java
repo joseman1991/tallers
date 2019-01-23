@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package controladors;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -11,12 +11,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import modelo.Imagenes;
-import modelo.ImagenesDAO;
-import modelo.Items;
-import modelo.ItemsDAO;
-import modelo.Opinion;
-import modelo.OpinionDAO;
+import modelos.Imagenes;
+import modelos.ImagenesDAO;
+import modelos.Items;
+import modelos.ItemsDAO;
+import modelos.Opinion;
+import modelos.OpinionDAO;
 import org.apache.struts2.ServletActionContext;
 
 /**

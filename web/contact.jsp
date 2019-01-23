@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Contact</title>
+        <title>Contáctanos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--===============================================================================================-->
@@ -39,7 +39,7 @@
         <!-- Title Page -->
         <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-06.jpg);">
             <h2 class="l-text2 t-center">
-                Contact
+                Contáctanos
             </h2>
         </section>
 
@@ -56,27 +56,27 @@
                     <div class="col-md-6 p-b-30">
                         <form class="leave-comment">
                             <h4 class="m-text26 p-b-36 p-t-15">
-                                Send us your message
+                                Envianos en un mensaje
                             </h4>
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Full Name">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="nombre" placeholder="Nombres">
                             </div>
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Phone Number">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Teléfono">
                             </div>
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Email Address">
+                                <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Correo">
                             </div>
 
-                            <textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="Message"></textarea>
+                            <textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="Mensaje"></textarea>
 
                             <div class="w-size25">
                                 <!-- Button -->
                                 <button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
-                                    Send
+                                    Enviar
                                 </button>
                             </div>
                         </form>

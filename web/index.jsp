@@ -51,7 +51,7 @@
                     <div class="item-slick1 item1-slick1" style="background-image: url(images/master-slide-02.jpg);">
                         <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                             <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
-                                Colección de mujer 2018
+                                Trabajos de metal
                             </span>
 
                             <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
@@ -69,7 +69,7 @@
                     <div class="item-slick1 item2-slick1" style="background-image: url(images/master-slide-03.jpg);">
                         <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                             <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
-                                Colección de mujer 2018
+                                Trabajos de metal
                             </span>
 
                             <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
@@ -88,7 +88,7 @@
                     <div class="item-slick1 item3-slick1" style="background-image: url(images/master-slide-04.jpg);">
                         <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
                             <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
-                                Colección de mujer 2018
+                                Trabajos de metal
                             </span>
 
                             <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
@@ -120,7 +120,7 @@
                             <div class="block1-wrapbtn w-size2">
                                 <!-- Button -->
                                 <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    Vestidos
+                                    Ventanas
                                 </a>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                             <div class="block1-wrapbtn w-size2">
                                 <!-- Button -->
                                 <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    Accesorios
+                                   Mesas
                                 </a>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
                             <div class="block1-wrapbtn w-size2">
                                 <!-- Button -->
                                 <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    Blusas
+                                     Soldadura
                                 </a>
                             </div>
                         </div>
@@ -159,7 +159,7 @@
                                 <div class="block1-wrapbtn w-size2">
                                     <!-- Button -->
                                     <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                        Pantalones
+                                        Hornos
                                     </a>
                                 </div>
                             </div>
@@ -170,11 +170,10 @@
                         <!-- block1 -->
                         <div class="block1 hov-img-zoom pos-relative m-b-30">
                             <img src="images/banner-04.jpg" alt="IMG-BENNER">
-
                             <div class="block1-wrapbtn w-size2">
                                 <!-- Button -->
                                 <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    Bolsos
+                                    Accesorios
                                 </a>
                             </div>
                         </div>
@@ -188,7 +187,7 @@
                             <div class="block1-wrapbtn w-size2">
                                 <!-- Button -->
                                 <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    Calzado
+                                    Cocina
                                 </a>
                             </div>
                         </div>
@@ -272,15 +271,15 @@
 
                             <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
                                 <span class="m-text9 p-t-45 fs-20-sm">
-                                    The Beauty
+                                    El metal
                                 </span>
 
                                 <h3 class="l-text1 fs-35-sm">
-                                    Lookbook
+                                    Es el mejor
                                 </h3>
 
                                 <a href="#" class="s-text4 hov2 p-t-20 ">
-                                    View Collection
+                                    
                                 </a>
                             </div>
                         </div>
@@ -293,16 +292,10 @@
                             <div class="ab-t-l sizefull flex-col-c-b p-l-15 p-r-15 p-b-20">
                                 <div class="t-center">
                                     <a href="product-detail.jsp" class="dis-block s-text3 p-b-5">
-                                        Gafas sol Hawkers one
+                                        Cadenas de acero
                                     </a>
 
-                                    <span class="block2-oldprice m-text7 p-r-5">
-                                        $29.50
-                                    </span>
-
-                                    <span class="block2-newprice m-text8">
-                                        $15.90
-                                    </span>
+                                    
                                 </div>
 
                                 <div class="flex-c-m p-t-44 p-t-30-xl">

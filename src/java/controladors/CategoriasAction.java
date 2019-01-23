@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package controladors;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Categorias;
-import modelo.CategoriasDAO;
-import modelo.Items;
-import modelo.ItemsDAO;
+import modelos.Categorias;
+import modelos.CategoriasDAO;
+import modelos.Items;
+import modelos.ItemsDAO;
 
 /**
  *

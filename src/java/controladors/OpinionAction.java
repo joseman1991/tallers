@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package controladors;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Opinion;
-import modelo.OpinionDAO;
+import modelos.Opinion;
+import modelos.OpinionDAO;
 
 /**
  *

@@ -87,10 +87,7 @@
                                 </s:if>
 
 
-                                <li>
-                                    <a href="about.jsp">Acerca de</a>
-                                </li>
-
+                               
                                 <li>
                                     <a href="contact.jsp">Contactos</a>
                                 </li>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package controladors;
 
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
@@ -16,14 +16,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
-import modelo.DetalleCompra;
-import modelo.EnviarMensaje; 
-import modelo.Items;
-import modelo.ItemsDAO;
-import modelo.Reservas;
-import modelo.ReservasDAO;
-import modelo.Usuarios;
-import modelo.UsuariosDAO;
+import modelos.DetalleCompra;
+import modelos.EnviarMensaje;
+import modelos.Items;
+import modelos.ItemsDAO;
+import modelos.Reservas;
+import modelos.ReservasDAO;
+import modelos.Usuarios;
+import modelos.UsuariosDAO;
 import net.sf.jasperreports.engine.JRException;
 import org.apache.struts2.ServletActionContext;
 

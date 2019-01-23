@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package controladors;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -11,11 +11,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.mail.MessagingException;
-import modelo.EnviarMensaje;
-import modelo.Items;
-import modelo.ItemsDAO;
-import modelo.Usuarios;
-import modelo.UsuariosDAO;
+import modelos.EnviarMensaje;
+import modelos.Items;
+import modelos.ItemsDAO;
+import modelos.Usuarios;
+import modelos.UsuariosDAO;
 import org.apache.struts2.ServletActionContext;
 
 /**

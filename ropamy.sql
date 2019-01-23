@@ -1,19 +1,14 @@
-drop table if exists opiniones;
-drop table if exists imagenes;
-drop table if exists detalleventa;
-drop table if exists detallereservacion;
-drop table if exists ventas;
-drop table if exists reservaciones;
-drop table if exists usuarios;
-drop table if exists perfiles;
-drop table if exists items;
-drop table if exists tipo;
-drop table if exists categorias;
+drop database if exists ropa;
+
+create database ropa;
+
+use ropa;
 
 create table perfiles (
 idperfil int primary key,
 descrripcion varchar(30)
  );
+ 
 insert into perfiles values(1,'ADMINISTRADOR');
 insert into perfiles values(2,'USUARIO');
 
