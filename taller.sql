@@ -1,8 +1,8 @@
-drop database if exists ropa;
+drop database if exists taller;
 
-create database ropa;
+create database taller;
 
-use ropa;
+use taller;
 
 create table perfiles (
 idperfil int primary key,
@@ -26,8 +26,8 @@ create table usuarios(
  idperfil int not null
 );
 
-insert into usuarios values('guisse','qwer123','Guissela','Maria','Jimenez','Balceca','guisse@gmail.com','client_01.jpg','BABAHOYO','1234567890',1);
-insert into usuarios values('angie','qwer123','Angie','Gabriela','Astudillo','B','aastudillo@gmail.com','client_02.jpg','BABAHOYO','1234567890',2);
+insert into usuarios values('danes1','qwer123','Dannes','Dannes','Dannes','Dannes','Dannes1@gmail.com','client_01.jpg','BABAHOYO','1234567890',1);
+insert into usuarios values('Dannes','qwer123','Dannes','Dannes','Dannes','Dannes','Dannes@gmail.com','client_02.jpg','BABAHOYO','1234567890',2);
 
 
 select * from usuarios;
@@ -49,12 +49,12 @@ create table categorias(
 
 select * from categorias;
 
-insert into categorias values(1,'VESTIDOS','banner-02.jpg');
-insert into categorias values(2,'BLUSAS','f.jpg');
-insert into categorias values(3,'BOLSOS','banner-10.jpg');
+insert into categorias values(1,'VENTANAS','banner-02.jpg');
+insert into categorias values(2,'MESAS','f.jpg');
+insert into categorias values(3,'COCINAS','banner-10.jpg');
 insert into categorias values(4,'ACCESORIOS','banner-05.jpg');
-insert into categorias values(5,'PANTALONES','banner-06.jpg');
-insert into categorias values(6,'CALZADO','banner-07.jpg');
+insert into categorias values(5,'HERRAMIENTAS','banner-06.jpg');
+insert into categorias values(6,'HORNOS','banner-07.jpg');
 
 
 create table items(

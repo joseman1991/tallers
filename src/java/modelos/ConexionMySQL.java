@@ -18,7 +18,7 @@ public class ConexionMySQL {
         String url;
         String usuario = ("root");
         String clave = ("mysql");
-        String BaseDeDatos = ("ropa");
+        String BaseDeDatos = ("taller");
         String puerto = ("3306");
         String servidor = ("localhost");
         try {
