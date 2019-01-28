@@ -41,7 +41,7 @@
         <!-- Title Page -->
         <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-06.jpg);">
             <h2 class="l-text2 t-center">
-                Actuallizar  
+                Actualizar  
             </h2>
         </section>
 
@@ -59,7 +59,7 @@
                         <form class="leave-comment" action="actualizar" id="form-registro" method="post">
 
                             <h4 class="m-text26 p-b-36 p-t-15">
-                                Actualizar Datos >
+                                Actualizar Datos 
                             </h4>
                             <s:set name="mensaje"><s:property value="mensaje"/></s:set>
                             <s:if test="#mensaje!=''">
