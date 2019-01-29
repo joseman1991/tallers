@@ -17,7 +17,7 @@ public class ConexionMySQL {
     protected void abrirConexion() throws SQLException { 
         String url;
         String usuario = ("root");
-        String clave = ("");
+        String clave = ("mysql");
         String BaseDeDatos = ("taller");
         String puerto = ("3306");
         String servidor = ("localhost");

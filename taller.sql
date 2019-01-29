@@ -64,7 +64,7 @@ create table items(
  descripcion2 character varying(1000) ,
  precio float,
  descuento float,
- idtipo int not null references tipo on update cascade on delete restrict,
+ idtipo int not null default 1 references tipo on update cascade on delete restrict,
  idcategorias int not null references categorias on update cascade on delete restrict,
  imagen character varying(50),
  stock int,
@@ -96,13 +96,14 @@ select * from items;
  create table imagenes(
   idimagen int primary key auto_increment,
   nombre character varying (50) not null,
-  iditem int not null references items on delete restrict on update cascade
+  tipo character varying (20),
+  archivo LONGBLOB,
+  iditem int not null, 
+  constraint foreign key (iditem) references items(iditem)  on delete restrict on update cascade
  );
 
 select * from items;
-
- insert into imagenes values (default,'Aromachology-Repairing-Mask-1.jpg',7);
- insert into imagenes values (default,'Aromachology-Repairing-Mask-2.jpg',7);
+ 
 
 create table opiniones(
  idopinion int primary key auto_increment,

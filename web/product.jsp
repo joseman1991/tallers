@@ -46,7 +46,7 @@
                 Industria a tu hogar
             </h2>
             <p class="m-text13 t-center">
-               Productos de calidad
+                Productos de calidad
             </p>
         </section>
 
@@ -101,13 +101,17 @@
 
 
 
-                            <div class="search-product pos-relative bo4 of-hidden">
-                                <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="Buscar producto" placeholder="Search Products...">
-
-                                <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
-                                    <i class="fs-12 fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </div>
+                   
+                                    <div class="search-product pos-relative bo4 of-hidden">
+                                        <form action="buscap" method="post">
+                                            <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="busqueda" placeholder="Buscar Productos...">
+                                            <button type="submit" class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+                                                <i class="fs-12 fa fa-search" aria-hidden="true"></i>
+                                            </button>
+                                            <input type="hidden" name="ubusca"  value="<s:property value="#user.nombreusuario"/>"/>                              
+                                        </form>
+                                    </div>
+                             
                         </div>
                     </div>
 
@@ -159,8 +163,8 @@
                                                         <s:url action="eliminar" var="eliminar">
                                                             <s:param name="producto"><s:property value="iditem"/></s:param>
                                                         </s:url>
-                                                         <s:a href="%{actualizar}" cssClass=" btn btn-primary btn-xs"><i class="fa fa-pencil "></i></s:a>
-                                                    <s:a href="%{eliminar}" cssClass="btn btn-danger btn-xs"><i class="fa fa-trash"></i></s:a>
+                                                        <s:a href="%{actualizar}" cssClass=" btn btn-primary btn-xs"><i class="fa fa-pencil "></i></s:a>
+                                                        <s:a href="%{eliminar}" cssClass="btn btn-danger btn-xs"><i class="fa fa-trash"></i></s:a>
                                                     </s:if>
                                                     <s:else>
                                                         <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
@@ -168,7 +172,7 @@
                                                         </button>
                                                     </s:else>
 
-                                                   
+
                                                     <input type="hidden" value="<s:property value="iditem"/>" class="iditem"/>
                                                 </div>
                                             </div>

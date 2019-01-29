@@ -12,6 +12,24 @@
         <action name="registro" class="controladors.UsuarioAction" method="insertar">
             <result name="success"> registro.jsp</result>
             <result name="error"> error.jsp</result>            
+        </action>  
+        
+        <action name="insertProducto" class="controladors.Producto" method="insertarProducto">
+            <result name="success" type="redirectAction">
+                <param name="actionName">categorias</param>
+                <param name="mensaje">${mensaje}</param>
+            </result>
+            <result name="error"> error.jsp</result>            
+        </action>  
+        
+        <action name="buscap" class="controladors.Producto" method="buscar2">
+            <result name="success">product.jsp</result>
+            <result name="error"> error.jsp</result>            
+        </action>  
+        
+        <action name="categorias" class="controladors.CategoriasAction" method="obtenerCategorias">
+            <result name="success"> agg_producto.jsp</result>
+            <result name="error"> error.jsp</result>            
         </action> 
           
         <action name="actualizar" class="controladors.UsuarioAction" method="actualizar">

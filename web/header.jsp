@@ -76,7 +76,8 @@
                                 </li>
 
                                 <li class="sale-noti">
-                                    <a href="product.jsp">Ventas</a>
+                                     <s:url action="categorias" var="cat"/>
+                              <s:a href="%{cat}" >Agregar producto</s:a>     
                                 </li>
 
                                 <s:if test="#user!=null">
@@ -357,7 +358,8 @@
                         </li>
 
                         <li class="item-menu-mobile">
-                            <a href="product.jsp">Ventas</a>
+                             <s:url action="categorias" var="cat"/>
+                              <s:a href="%{cat}" cssClass="text-primary">Agregar producto</s:a>                            
                         </li>
 
                         <li class="item-menu-mobile">
